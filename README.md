@@ -8,10 +8,10 @@ Asynchronous documentation web-app built by a subset of Correlation. Features a 
 ```
 ATLAS_URI=mongodb+srv://<username>:<password>@vcl-documentation-app.gcjzz.mongodb.net/VCL-Documentation-App?retryWrites=true&w=majority
 ```
-Please replace `<username>` and `<password>` with your username and password from your database user from MongoDB.
+4. Please replace `<username>` and `<password>` with your username and password from your database user from MongoDB.
 
 To create a database user, navigate to the project "Documentation Web-app" on MongoDB. Then navigate to the "Database Access" tab, and click "Add new database user". 
 
 Note to not use a password that you would normally use with other apps.
 
-4. To start the app locally, run `npm start` in the client directory, and run `node index.js` in the backend directory. Feel free to use nodemon as well :)
+5. To start the app locally, run `npm start` in the client directory, and run `node index.js` in the backend directory. Feel free to use nodemon as well :)
