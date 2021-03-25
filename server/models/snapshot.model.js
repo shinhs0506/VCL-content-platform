@@ -19,6 +19,8 @@ const snapshotSchema = new Schema(
       type: String,
       required: true,
     },
+    tags: [{ type: String }],
+    contributors: [{ type: String }],
   },
   {
     timestamps: true,
