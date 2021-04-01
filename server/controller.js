@@ -39,3 +39,25 @@ exports.createSnapshot = async (req, res) => {
       });
     });
 };
+
+/**
+ * @param Expected request body: None
+ * @param Responds with all timeline objects found in database
+ */
+exports.getAllSnapshots = async (req, res) => {
+  Snapshot.find()
+  .exec()
+  .then((data) => {
+    res.status(200).json({
+      message: "Successfully retrieved all timeline snapshots",
+      data: data
+    });
+  })
+  .catch((err) => {
+    res.status(400).json({
+      message: "Error getting all timeline snapshots from MongoDB",
+      error: err
+    });
+  });
+
+}
