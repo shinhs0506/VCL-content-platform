@@ -61,3 +61,26 @@ exports.getAllSnapshots = async (req, res) => {
   });
 
 }
+
+/**
+ * 
+ * @param Expected request body: None, request url parameter: id - ID of the timeline snapshot to delete
+ * @param Responds with a message saying deleted if successful, along with the deleted object, or an error message if unsuccessful
+ */
+exports.deleteSnapshot = async (req, res) => {
+  let id = req.params.id;
+  Snapshot.findByIdAndDelete(id)
+  .exec()
+  .then((data) => {
+    res.status(200).json({
+      message: "Successfully deleted timeline snapshot",
+      data: data
+    })
+  })
+  .catch((err) => {
+    res.status(400).json({
+      message: "Error deleting timeline snapshot from MongoDB",
+      error: err
+    })
+  })
+}
