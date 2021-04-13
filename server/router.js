@@ -12,4 +12,7 @@ router.get("/api/snapshots", Controller.getAllSnapshots);
 // Define DEL route for deleting a snapshot given the ID
 router.delete("/api/snapshots/:id", Controller.deleteSnapshot);
 
+// Definte GET route for getting a snapshot given the ID
+router.get("/api/snapshots/:id", Controller.getSnapshot);
+
 module.exports = router;
