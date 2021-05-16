@@ -1,0 +1,5 @@
+#bootstrap-overrides .Button-wrapper {
+    display: inline-block;
+    white-space: nowrap;
+    color: black;
+}

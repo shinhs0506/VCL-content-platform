@@ -1,10 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import {Timeline} from './pages/timeline/Timeline';
 import { Home } from './pages/home/Home';
 import { Projects } from './pages/projects/Projects';
+import { GenericButton } from './generic/GenericButton';
 
 function App() {
 
@@ -38,6 +40,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
+        <GenericButton text="Create" type="create"/>
       </header>
     </div>
   );
