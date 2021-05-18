@@ -5,6 +5,7 @@ interface ButtonProps {
     text?: string
     size?: "sm" | "lg" | undefined
     type?: "create" | "get" | "delete"
+    className: string
 }
 
 function renderSwitch(type: string | undefined) {
@@ -21,7 +22,7 @@ function renderSwitch(type: string | undefined) {
 export const GenericButton: React.FC<ButtonProps> = (props) => {
     return (
         <div className="Button-wrapper">
-            <Button variant="primary" size={props.size}>
+            <Button className={props.className} variant="primary" size={props.size}>
                 {renderSwitch(props.type)}
                 {props.type && props.text && <span>&nbsp;</span>}
                 {props.text}
