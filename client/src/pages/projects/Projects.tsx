@@ -1,33 +1,31 @@
 import React from 'react'
-import {BrowserRouter as Router, Switch, Route, Link, useRouteMatch} from 'react-router-dom';
-import { IT } from './IT/IT';
-import { Nova } from './nova/Nova';
+import {Link, useRouteMatch} from 'react-router-dom';
 
 
 interface ProjectsProps {
 
 }
 
+enum CurrentProjects {
+    IT = "IT",
+    NOVA = "nova",
+    SHIVA = "shiva",
+    IDEO = "ideo",
+    CORRELATION = "correlation"
+}
+
 export const Projects: React.FC<ProjectsProps> = ({}) => {
-    let match = useRouteMatch();
     return (<div>
         HI THIS IS THE PROJECTS PAGE
 
         <ul>
-        <li>
-            <Link to={`${match.url}/IT`}>IT</Link>
-        </li>
-        <li>
-            <Link to={`${match.url}/nova`}>NOVA</Link>
-        </li>
+            {
+                Object.values(CurrentProjects).map(project => (
+                    <li>
+                        <Link to={`/projects/${project}`}>{project}</Link>
+                    </li>
+                ))
+            }
         </ul>
-        <Switch>
-        <Route path={`${match.url}/IT`}>
-            <IT />
-        </Route>
-        <Route path={`${match.url}/nova`}>
-            <Nova />
-        </Route>
-        </Switch>
     </div>);
 }
