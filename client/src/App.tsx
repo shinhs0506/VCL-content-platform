@@ -40,7 +40,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
-        <GenericButton text="Create" type="create" className="successfully-classed"/>
+        <GenericButton text="Create" className="successfully-classed"/>
       </header>
     </div>
   );
