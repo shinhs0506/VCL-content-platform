@@ -7,7 +7,7 @@ const Home: React.FC<HomeProps> = (props) => {
   return (
     <div>
       <div>HI THIS IS THE LANDING PAGE</div>
-      <Button>TESTING</Button>
+      <Button variant="contained">TESTING</Button>
     </div>
   );
 };

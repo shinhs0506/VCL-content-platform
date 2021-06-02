@@ -18,7 +18,7 @@ const GenericButton: React.FC<ButtonProps> = (props) => {
     const classes = classNames("button-root", className);
 
     return (
-        <Button {...rest} variant="contained" className={classes} >
+        <Button {...rest} className={classes} >
             {children}
         </Button>
     );
