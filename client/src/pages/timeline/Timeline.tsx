@@ -4,8 +4,10 @@ interface TimelineProps {
 
 }
 
-export const Timeline: React.FC<TimelineProps> = ({}) => {
+const Timeline: React.FC<TimelineProps> = (props) => {
         return (<div>
             HI THIS IS A TIMELINE
         </div>);
 }
+
+export default Timeline;

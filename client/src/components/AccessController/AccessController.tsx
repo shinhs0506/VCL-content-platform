@@ -3,7 +3,7 @@ interface PropType {
 };
 
 const AccessController: React.FC<PropType> = (props) => {
-  return <></>;
+  return null;
 };
 
 export default AccessController;

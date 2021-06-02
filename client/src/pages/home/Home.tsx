@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-interface HomeProps {
+interface HomeProps {}
 
-}
+const Home: React.FC<HomeProps> = (props) => {
+  return <div>HI THIS IS THE LANDING PAGE</div>;
+};
 
-export const Home: React.FC<HomeProps> = ({}) => {
-        return (<div>
-            HI THIS IS THE LANDING PAGE
-        </div>);
-}
+export default Home

@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import {Timeline} from './pages/timeline/Timeline';
-import { Home } from './pages/home/Home';
-import { Projects } from './pages/projects/Projects';
-import { Navbar } from './Navbar';
-import { Project } from './pages/projects/Project';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import routes from "@statics/routes";
+import Timeline from "@pages/Timeline";
+import Home from "@pages/Home";
+import Project from "@pages/Project";
 
 function App() {
-
   return (
     <div className="App">
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route path="/timeline" exact component={Timeline} />
-            <Route path="/projects" exact component={Projects} />
-            <Route path="/projects/:projectid" component={Project} />
-            <Route path="/" exact component={Home}/>
-          </Switch>
-        </Router>
+      <Router>
+        <Switch>
+          <Route path={routes.TIMELINE} exact component={Timeline} />
+          <Route path={routes.PROJECT.PATH} exact component={Project} />
+          <Route path={routes.HOME} exact component={Home} />
+        </Switch>
+      </Router>
     </div>
   );
 }
