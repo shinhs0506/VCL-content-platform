@@ -1,27 +1,23 @@
-import { Button } from '@material-ui/core';
+import { Button } from "@material-ui/core";
 import classNames from "classnames";
-import './Button.css';
+import "./Button.css";
 
 interface ButtonProps {
-    children?: React.ReactNode,
-    className?: string,
-    [rest: string]: any,
+  children?: React.ReactNode;
+  className?: string;
+  [rest: string]: any;
 }
 
 const GenericButton: React.FC<ButtonProps> = (props) => {
-    const {
-        className,
-        children,
-        ...rest
-    } = props;
+  const { className, children, ...rest } = props;
 
-    const classes = classNames("button-root", className);
+  const classes = classNames("button-root", className);
 
-    return (
-        <Button {...rest} className={classes} >
-            {children}
-        </Button>
-    );
-}
+  return (
+    <Button {...rest} className={classes}>
+      {children}
+    </Button>
+  );
+};
 
 export default GenericButton;

@@ -11,7 +11,6 @@ interface ProjectProps extends RouteComponentProps<MatchParams> {
 }
 
 const Project: React.FC<ProjectProps> = ({match}) => {
-
         return (<div>
             PROJECT! {match.params.projectid}
         </div>);
