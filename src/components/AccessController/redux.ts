@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "@redux/store";
 
-type userType = "default" | "member" | "manager";
+type UserType = "default" | "member" | "admin";
 
 interface AccessControllerState {
-  user: userType;
+  user: UserType;
 }
 
 const initialState: AccessControllerState = {
@@ -15,7 +15,7 @@ export const accessControllerSlice = createSlice({
   name: "accessController",
   initialState,
   reducers: {
-    setUserType: (state, { payload }: PayloadAction<{ user: userType }>) => {
+    setUserType: (state, { payload }: PayloadAction<{ user: UserType }>) => {
       state.user = payload.user;
     },
   },
