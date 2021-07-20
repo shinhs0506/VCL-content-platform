@@ -13,10 +13,18 @@
 
 .nav-links li {
 	display: inline-block;
-	padding: 0px 20px;
+	padding: 0px 5vw;
 }
 
 .nav-link {
 	text-decoration: none;
 	color: black;
+}
+
+.title {
+	padding: 0px 20px;
+}
+
+.navbar-container button {
+	margin: 0px 20px;
 }
