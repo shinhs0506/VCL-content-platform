@@ -21,6 +21,10 @@
 	color: black;
 }
 
+.nav-link.active {
+	color: darkblue;
+}
+
 .title {
 	padding: 0px 20px;
 }

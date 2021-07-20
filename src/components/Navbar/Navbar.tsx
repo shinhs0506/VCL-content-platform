@@ -5,6 +5,7 @@ import "./Navbar.css";
 //TODO: Refactor navbar to generic
 interface NavbarProps {}
 
+// TODO: move to statics?
 const links = [
   {
     ref: '/',
@@ -24,14 +25,18 @@ const Navbar: React.FC<NavbarProps> = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const renderedLinks = links.map((linkInfo, index) => {
+    const active = index === activeIndex ? 'active' : '';
+
     return (
       <React.Fragment key={linkInfo.ref}>
         <li>
-          <Link className="nav-link" to={linkInfo.ref}>{linkInfo.text}</Link>
+          <Link className={`nav-link ${active}`} to={linkInfo.ref} onClick={() => {setActiveIndex(index)}}>
+              {linkInfo.text}
+          </Link>
         </li>
       </React.Fragment>
     )
-  })
+  });
 
   return (
     <div className="navbar-container">
