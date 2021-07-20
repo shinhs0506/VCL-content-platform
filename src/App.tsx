@@ -5,11 +5,13 @@ import routes from "@statics/routes";
 import Timeline from "@pages/Timeline";
 import Home from "@pages/Home";
 import Project from "@pages/Project";
+import Navbar from "@components/Navbar";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar/>
         <Switch>
           <Route path={routes.TIMELINE} exact component={Timeline} />
           <Route path={routes.PROJECT.PATH} exact component={Project} />
