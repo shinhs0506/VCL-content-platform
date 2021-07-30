@@ -1,4 +1,4 @@
-import { navbar } from "@statics";
+import { navbar, text } from "@statics";
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = () => {
 
   return (
     <div className="navbar-container">
-      <p className="title">UBC Visual Cognition Lab</p>
+      <p id="nav-title">{text.COMMON.TITLE}</p>
       <nav>
         <ul className="nav-links">
           {renderedLinks}
