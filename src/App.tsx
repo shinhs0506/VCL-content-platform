@@ -13,9 +13,9 @@ function App() {
       <Router>
         <Navbar/>
         <Switch>
-          <Route path={routes.TIMELINE} exact component={Timeline} />
-          <Route path={routes.PROJECT.PATH} exact component={Project} />
-          <Route path={routes.HOME} exact component={Home} />
+          <Route exact path={routes.TIMELINE} component={Timeline} />
+          <Route exact path={routes.PROJECT.PATH} component={Project} />
+          <Route exact path={routes.HOME} component={Home} />
         </Switch>
       </Router>
     </div>

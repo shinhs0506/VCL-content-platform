@@ -1,38 +1,20 @@
+import { navbar } from "@statics";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
-//TODO: Refactor navbar to generic
 interface NavbarProps {}
 
-// TODO: move to statics?
-const links = [
-  {
-    ref: '/',
-    text: 'Home'
-  },
-  {
-    ref: '/timeline',
-    text: 'Timeline'
-  },
-  {
-    ref: '/projects',
-    text: 'Projects'
-  }
-]
-
 const Navbar: React.FC<NavbarProps> = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const location = useLocation();
 
-  const renderedLinks = links.map((linkInfo, index) => {
-    const active = index === activeIndex ? 'active' : '';
+  const renderedLinks = navbar.map(({ TITLE, REF }) => {
+    const active = REF === location.pathname ? 'active' : '';
 
     return (
-      <React.Fragment key={linkInfo.ref}>
+      <React.Fragment key={REF}>
         <li>
-          <Link className={`nav-link ${active}`} to={linkInfo.ref} onClick={() => {setActiveIndex(index)}}>
-              {linkInfo.text}
-          </Link>
+          <Link className={`nav-link ${active}`} to={REF}>{TITLE}</Link>
         </li>
       </React.Fragment>
     )
