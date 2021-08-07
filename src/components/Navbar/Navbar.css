@@ -1,10 +1,7 @@
-.navbar-container {
+.navbar-toolbar {
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	margin: 0px 0px 30px;
-	box-shadow: 0px 10px 15px #DDDDDD;
 }
 
 .nav-links {
@@ -13,7 +10,7 @@
 
 .nav-links li {
 	display: inline-block;
-	padding: 0px 3vw;
+	padding: 0px 2.5vw;
 }
 
 .nav-link {

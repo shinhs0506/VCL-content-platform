@@ -8,7 +8,9 @@ const TEXT = {
   PAGE_TITLES: {
     HOME: "Home",
     TIMELINE: "Timeline",
-    PROJECTS: "Projects"
+    PROJECTS: "Projects",
+    ABOUT: "About",
+    RESOURCES: "Resources"
   }
 };
 

@@ -5,6 +5,8 @@ const ROUTES = {
     BASE: "/projects",
   },
   TIMELINE: "/timeline",
+  ABOUT: "/about",
+  RESOURCES: "/resources"
 };
 
 export default ROUTES;

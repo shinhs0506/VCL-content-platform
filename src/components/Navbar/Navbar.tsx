@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography, makeStyles } from "@material-ui/core";
-import { NAVBAR, TEXT } from "@statics";
+import { NAVBAR } from "@statics";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => {
   return {
     toolbar: theme.mixins.toolbar
   }
-})
+});
 
 const Navbar: React.FC<NavbarProps> = () => {
   const classes = useStyles();
@@ -30,19 +30,19 @@ const Navbar: React.FC<NavbarProps> = () => {
 
   return (
     <div>
-      <AppBar>
-        <Toolbar>
-          <Typography>
+      <AppBar className="navbar-appbar">
+        <Toolbar className="navbar-toolbar">
+          <Typography className="nav-title">
             UBC Visual Cognition Lab
           </Typography>
-          <nav>
+          <nav className="nav-main">
             <ul className="nav-links">
               {renderedLinks}
             </ul>
           </nav>
         </Toolbar>
       </AppBar>
-      <div className={classes.toolbar} />
+      <div style={{ marginBottom: '10px' }} className={classes.toolbar} />
     </div>
   )
   // return (
