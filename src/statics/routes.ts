@@ -1,4 +1,4 @@
-const routes = {
+const ROUTES = {
   HOME: "/",
   PROJECT: {
     PATH: "/projects/:project_id",
@@ -7,4 +7,4 @@ const routes = {
   TIMELINE: "/timeline",
 };
 
-export default routes;
+export default ROUTES;

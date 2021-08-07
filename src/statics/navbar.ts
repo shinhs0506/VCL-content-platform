@@ -1,19 +1,19 @@
-import routes from "./routes";
-import text from "./text";
+import ROUTES from "./routes";
+import TEXT from "./text";
 
-const navbar = [
+const NAVBAR = [
 	{
-		TITLE: text.PAGE_TITLES.HOME,
-		REF: routes.HOME
+		TITLE: TEXT.PAGE_TITLES.HOME,
+		REF: ROUTES.HOME
 	},
 	{
-		TITLE: text.PAGE_TITLES.TIMELINE,
-		REF: routes.TIMELINE
+		TITLE: TEXT.PAGE_TITLES.TIMELINE,
+		REF: ROUTES.TIMELINE
 	},
 	{
-		TITLE: text.PAGE_TITLES.PROJECTS,
-		REF: routes.PROJECT.BASE
+		TITLE: TEXT.PAGE_TITLES.PROJECTS,
+		REF: ROUTES.PROJECT.BASE
 	}
 ];
 
-export default navbar;
+export default NAVBAR;

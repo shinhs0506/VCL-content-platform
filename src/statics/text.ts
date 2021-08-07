@@ -1,4 +1,4 @@
-const text = {
+const TEXT = {
   COMMON: {
     SUBMIT: "Submit",
     BACK: "Back",
@@ -12,4 +12,4 @@ const text = {
   }
 };
 
-export default text;
+export default TEXT;
