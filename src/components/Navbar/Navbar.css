@@ -1,32 +1,25 @@
-.navbar-toolbar {
+.nav-appbar {
+	margin-bottom: 10px;
+}
+
+.nav-toolbar {
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
-}
-
-.nav-links {
-	list-style: none;
-}
-
-.nav-links li {
-	display: inline-block;
-	padding: 0px 2.5vw;
+	background-color: whitesmoke;
+	color: black;
 }
 
 .nav-link {
 	text-decoration: none;
 	color: black;
+	padding: 0 2vw;
 }
 
 .nav-link.active {
 	color: darkblue;
 }
 
-#nav-title {
-	font-size: 20px;
-	padding: 0px 20px;
-}
-
-.navbar-container button {
-	margin: 0px 20px;
+.nav-title {
+	font-size: 20px !important;
 }
