@@ -23,7 +23,9 @@ const Navbar: React.FC<NavbarProps> = () => {
     <div>
       <AppBar position="sticky" className="nav-appbar">
         <Toolbar className="nav-toolbar">
-          <Typography className="nav-title">{TEXT.COMMON.TITLE}</Typography>
+          <Typography className="nav-title" style={{ fontSize: '20px' }}>
+            {TEXT.COMMON.TITLE}
+          </Typography>
           <span>
             {renderedLinks}
           </span>
