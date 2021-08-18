@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@components/generics/Button";
+import Button from "@components/Button";
 
 interface HomeProps {}
 

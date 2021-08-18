@@ -1,10 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
-// reducer imports go here
-import accessControllerReducer from "@components/AccessController/redux"
+import { configureStore } from '@reduxjs/toolkit';
+
+// Generic reducer imports go here
+import accessControllerReducer from './generics/AccessControllerRedux';
+import authReducer from './generics/AuthRedux';
+// Component/Page reducer imports go here
 
 export const store = configureStore({
   reducer: {
     accessController: accessControllerReducer,
+    auth: authReducer,
   },
 });
 
