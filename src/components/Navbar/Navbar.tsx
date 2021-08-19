@@ -23,12 +23,8 @@ const Navbar: React.FC<NavbarProps> = () => {
     <div>
       <AppBar position="sticky" className="nav-appbar">
         <Toolbar className="nav-toolbar">
-          <Typography id="nav-title">
-            {TEXT.COMMON.TITLE}
-          </Typography>
-          <span>
-            {renderedLinks}
-          </span>
+          <Typography className="nav-title">{TEXT.COMMON.TITLE}</Typography>
+          <span>{renderedLinks}</span>
         </Toolbar>
       </AppBar>
     </div>
