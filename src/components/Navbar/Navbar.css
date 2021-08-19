@@ -1,0 +1,25 @@
+.nav-appbar {
+	margin-bottom: 10px;
+}
+
+.nav-toolbar {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	background-color: whitesmoke;
+	color: black;
+}
+
+.nav-toolbar .nav-title {
+	font-size: 20px;
+}
+
+.nav-link {
+	text-decoration: none;
+	color: black;
+	padding: 0 2vw;
+}
+
+.nav-link.active {
+	color: darkblue;
+}

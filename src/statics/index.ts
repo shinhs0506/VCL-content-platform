@@ -1,2 +1,3 @@
-export { default as routes} from "./routes";
-export { default as text} from "./text";
+export { default as ROUTES} from "./routes";
+export { default as TEXT} from "./text";
+export { default as NAVBAR } from "./navbar";
