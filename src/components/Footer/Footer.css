@@ -1,0 +1,11 @@
+.footer-root {
+	text-align: left;
+	background-color: #f2f2f2;
+	margin-top: 40px;
+}
+
+#footer-logo {
+	max-width: 300px;
+	max-height: auto;
+	object-fit: contain;
+}

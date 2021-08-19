@@ -5,6 +5,7 @@ import routes from "@statics/routes";
 import Timeline from "@pages/Timeline";
 import Home from "@pages/Home";
 import Project from "@pages/Project";
+import Footer from "@components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path={routes.HOME} exact component={Home} />
         </Switch>
       </Router>
+      <Footer/>
     </div>
   );
 }
