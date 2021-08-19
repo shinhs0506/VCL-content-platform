@@ -1,14 +1,27 @@
 import axios from 'axios';
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 
 dotenv.config();
 
-const API_URL = process.env.REACT_APP_API_URL
+const baseURL = process.env.REACT_APP_API_URL;
 
-export const loginUser = async () => {
-  console.log("API_URL: ", API_URL);
-}
+export const loginUser = async (username: string, password: string) => {
+  try {
+    const res = await axios.post(
+      '/api/users/login',
+      {
+        username,
+        password,
+      },
+      {
+        baseURL,
+      }
+    );
 
-export const checkAuth = async () => {
-  console.log("API_URL: ", API_URL);
-}
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const checkAuth = async () => {};

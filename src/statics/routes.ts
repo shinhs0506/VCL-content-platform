@@ -5,6 +5,6 @@ const routes = {
     BASE: "/projects",
   },
   TIMELINE: "/timeline",
-};
+} as const;
 
 export default routes;
