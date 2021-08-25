@@ -1,13 +1,13 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import TextField from '@material-ui/core/TextField';
-import yup from 'yup';
+import * as yup from 'yup';
 import Button from '@components/Button';
 import { text, constants } from '@statics';
 import './LoginForm.css';
 
 interface LoginFormProps {
-  handleSubmit: (username: string, password: string) => void;
+  onSubmit: (username: string, password: string) => void;
   disabled?: boolean;
 }
 
@@ -35,7 +35,7 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
     },
     validationSchema: schema,
     onSubmit: (values) => {
-      props.handleSubmit(values.username, values.password);
+      props.onSubmit(values.username, values.password);
     },
   });
 
