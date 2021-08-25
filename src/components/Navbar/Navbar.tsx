@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { NAVBAR, TEXT } from "@statics";
+import { NAVIGATION, TEXT } from "@statics";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
@@ -9,7 +9,7 @@ interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = () => {
   const location = useLocation();
 
-  const renderedLinks = NAVBAR.map(({ TITLE, REF }) => {
+  const renderedLinks = NAVIGATION.map(({ TITLE, REF }) => {
     const active = REF === location.pathname ? 'active' : '';
 
     return (
