@@ -22,8 +22,8 @@ function App() {
           <Route exact path={ROUTES.ABOUT} component={About} />
           <Route exact path={ROUTES.RESOURCES} component={Resources} />
         </Switch>
+        <Footer/>
       </Router>
-      <Footer/>
     </div>
   );
 }
