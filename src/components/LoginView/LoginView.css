@@ -1,3 +1,7 @@
 .login-view-root {
-  
+  padding: 16px;
+}
+
+.login-error {
+  color: red;
 }

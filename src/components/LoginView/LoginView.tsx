@@ -10,19 +10,14 @@ const LoginView = () => {
     handleLogin(user, pwd);
   }
 
-  // React.useEffect(() => {
-  //   console.log("isFetching: ", isFetching);
-  // }, [isFetching]);
-
-  // React.useEffect(() => {
-  //   console.log("error: ", error);
-  // }, [error]);
-
   return(
     <div className="login-view-root">
       <LoginForm onSubmit={handleUserLogin} disabled={isFetching}/>
+      {error && <p className="login-error">{`Error: ${error}`}</p>}
     </div>
   )
 }
+
+
 
 export default LoginView;

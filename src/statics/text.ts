@@ -8,6 +8,7 @@ const text = {
   },
 
   LOGIN: {
+    TITLE: "Member Login",
     USERNAME: "Username",
     USERNAME_EMPTY_ERROR: "Username is required",
     USERNAME_LENGTH_ERROR: `Minimum ${constants.MIN_USERNAME_LENGTH} characters`,

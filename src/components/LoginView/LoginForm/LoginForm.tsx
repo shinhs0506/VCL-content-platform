@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import * as yup from 'yup';
-import Button from '@components/Button';
+import Button from '@components/generics/Button';
 import { text, constants } from '@statics';
 import './LoginForm.css';
 

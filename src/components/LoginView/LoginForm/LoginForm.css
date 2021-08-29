@@ -1,0 +1,4 @@
+.login-form-root {
+  display: flex;
+  flex-direction: column;
+}
