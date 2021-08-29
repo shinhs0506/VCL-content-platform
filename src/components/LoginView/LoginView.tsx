@@ -1,23 +1,32 @@
 import React from 'react';
-import {useHandleLogin} from './LoginService';
+import Modal, { ModalInjectedProps } from '@components/generics/Modal';
+import { useHandleLogin } from './LoginService';
 import LoginForm from './LoginForm';
 import './LoginView.css';
 
-const LoginView = () => {
-  const {handleLogin, isFetching, error} = useHandleLogin();
+type LoginViewProps = ModalInjectedProps;
+
+const LoginView: React.FC<LoginViewProps> = (props) => {
+  const { handleClose } = props;
+
+  const { handleLogin, isFetching, error, success } = useHandleLogin();
 
   const handleUserLogin = (user: string, pwd: string) => {
     handleLogin(user, pwd);
-  }
+  };
 
-  return(
+  React.useEffect(() => {
+    if (success) {
+      handleClose && handleClose();
+    }
+  });
+
+  return (
     <div className="login-view-root">
-      <LoginForm onSubmit={handleUserLogin} disabled={isFetching}/>
+      <LoginForm onSubmit={handleUserLogin} disabled={isFetching} />
       {error && <p className="login-error">{`Error: ${error}`}</p>}
     </div>
-  )
-}
-
-
+  );
+};
 
 export default LoginView;

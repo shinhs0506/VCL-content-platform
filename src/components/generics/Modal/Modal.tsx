@@ -15,6 +15,11 @@ interface ModalWrapperProps {
   disableDefaultClose?: boolean;
 }
 
+export interface ModalInjectedProps {
+  modalData?: Object;
+  handleClose: () => void;
+}
+
 const ModalWrapper: React.FC<ModalWrapperProps> = (props) => {
   const dispatch = useDispatch();
 
@@ -24,12 +29,14 @@ const ModalWrapper: React.FC<ModalWrapperProps> = (props) => {
     dispatch(appActions.closeModal({ key: props.key }));
   };
 
+  const injectedProps: ModalInjectedProps = { modalData: data, handleClose };
+
   return (
     <Modal
       open={visible}
       className={`web-app-modal ${props.name}-modal`}
       onClose={props.disableDefaultClose ? () => {} : handleClose}>
-      {React.cloneElement(props.children, { modalData: data, handleClose })}
+      {React.cloneElement(props.children, injectedProps)}
     </Modal>
   );
 };
