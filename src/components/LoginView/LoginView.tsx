@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal, { ModalInjectedProps } from '@components/generics/Modal';
-import { constants } from '@statics';
+import { CONSTANTS } from '@statics';
 import { useHandleLogin } from './LoginService';
 import LoginForm from './LoginForm';
 import './LoginView.css';
@@ -30,7 +30,7 @@ const LoginView: React.FC<LoginViewProps> = (props) => {
 
 export const LoginModal = () => {
   return (
-    <Modal name="login" key={constants.MODALS.LOGIN}>
+    <Modal name="login" modalKey={CONSTANTS.MODALS.LOGIN}>
       <LoginView />
     </Modal>
   );

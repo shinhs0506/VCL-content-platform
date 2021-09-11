@@ -1,10 +1,9 @@
 import React from "react";
-import Login from '@components/LoginView';
 
 interface TimelineProps {}
 
 const Timeline: React.FC<TimelineProps> = (props) => {
-  return <div><Login /></div>;
+  return <div>This is a timeline</div>;
 };
 
 export default Timeline;

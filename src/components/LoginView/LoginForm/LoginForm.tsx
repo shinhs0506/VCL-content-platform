@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import * as yup from 'yup';
 import Button from '@components/generics/Button';
-import { text, constants } from '@statics';
+import { TEXT, CONSTANTS } from '@statics';
 import './LoginForm.css';
 
 interface LoginFormProps {
@@ -17,13 +17,13 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
       yup.object({
         username: yup
           .string()
-          .min(constants.MIN_USERNAME_LENGTH, text.LOGIN.USERNAME_LENGTH_ERROR)
-          .required(text.LOGIN.USERNAME_EMPTY_ERROR),
+          .min(CONSTANTS.MIN_USERNAME_LENGTH, TEXT.LOGIN.USERNAME_LENGTH_ERROR)
+          .required(TEXT.LOGIN.USERNAME_EMPTY_ERROR),
 
         password: yup
           .string()
-          .min(constants.MIN_PASSWORD_LENGTH, text.LOGIN.PASSWORD_LENGTH_ERROR)
-          .required(text.LOGIN.PASSWORD_EMPTY_ERROR),
+          .min(CONSTANTS.MIN_PASSWORD_LENGTH, TEXT.LOGIN.PASSWORD_LENGTH_ERROR)
+          .required(TEXT.LOGIN.PASSWORD_EMPTY_ERROR),
       }),
     []
   );
@@ -43,7 +43,7 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
     <form className="login-form-root" onSubmit={form.handleSubmit}>
       <TextField
         name="username"
-        label={text.LOGIN.USERNAME}
+        label={TEXT.LOGIN.USERNAME}
         variant="outlined"
         value={form.values.username}
         onChange={form.handleChange}
@@ -53,7 +53,7 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
       />
       <TextField
         name="password"
-        label={text.LOGIN.PASSWORD}
+        label={TEXT.LOGIN.PASSWORD}
         variant="outlined"
         value={form.values.password}
         onChange={form.handleChange}
@@ -67,7 +67,7 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
         disableElevation
         type="submit"
         disabled={props.disabled}>
-        {text.COMMON.SUBMIT}
+        {TEXT.COMMON.SUBMIT}
       </Button>
     </form>
   );
