@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '@redux/store';
-import { constants } from '@statics';
+import { CONSTANTS } from '@statics';
 
 export interface ModalState {
   visible: boolean;
@@ -8,7 +8,7 @@ export interface ModalState {
 }
 
 export type ValidModalKey =
-  typeof constants.MODALS[keyof typeof constants.MODALS];
+  typeof CONSTANTS.MODALS[keyof typeof CONSTANTS.MODALS];
 
 interface AppState {
   isReady: boolean;

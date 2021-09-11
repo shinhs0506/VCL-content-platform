@@ -1,10 +1,12 @@
-const routes = {
-  HOME: "/",
+const ROUTES = {
+  HOME: '/',
   PROJECT: {
-    PATH: "/projects/:project_id",
-    BASE: "/projects",
+    PATH: '/projects/:project_id',
+    BASE: '/projects',
   },
-  TIMELINE: "/timeline",
+  TIMELINE: '/timeline',
+  ABOUT: '/about',
+  RESOURCES: '/resources',
 } as const;
 
-export default routes;
+export default ROUTES;
