@@ -50,6 +50,7 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
         onBlur={form.handleBlur}
         error={Boolean(form.touched.username) && Boolean(form.errors.username)}
         helperText={form.touched.username && form.errors.username}
+        className="login-form-field"
       />
       <TextField
         name="password"
@@ -61,6 +62,7 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
         error={Boolean(form.touched.password) && Boolean(form.errors.password)}
         helperText={form.touched.password && form.errors.password}
         type="password"
+        className="login-form-field"
       />
       <Button
         variant="contained"

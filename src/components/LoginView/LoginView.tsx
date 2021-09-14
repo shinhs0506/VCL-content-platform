@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal, { ModalInjectedProps } from '@components/generics/Modal';
-import { CONSTANTS } from '@statics';
+import { CONSTANTS, TEXT } from '@statics';
 import { useHandleLogin } from './LoginService';
 import LoginForm from './LoginForm';
 import './LoginView.css';
@@ -22,6 +22,7 @@ const LoginView: React.FC<LoginViewProps> = (props) => {
 
   return (
     <div className="login-view-root">
+      <h3 className="login-view-title">{TEXT.LOGIN.TITLE}</h3>
       <LoginForm onSubmit={handleUserLogin} disabled={isFetching} />
       {error && <p className="login-error">{`Error: ${error}`}</p>}
     </div>

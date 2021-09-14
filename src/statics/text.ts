@@ -9,7 +9,7 @@ const TEXT = {
   },
 
   LOGIN: {
-    TITLE: 'Member Login',
+    TITLE: 'Login to gain edit permissions. Please contact Tech Manager to create account.',
     USERNAME: 'Username',
     USERNAME_EMPTY_ERROR: 'Username is required',
     USERNAME_LENGTH_ERROR: `Minimum ${constants.MIN_USERNAME_LENGTH} characters`,

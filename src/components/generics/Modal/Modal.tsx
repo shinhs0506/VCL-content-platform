@@ -38,7 +38,9 @@ const ModalWrapper: React.FC<ModalWrapperProps> = (props) => {
       open={modal?.visible}
       className={`web-app-modal ${props.name}-modal`}
       onClose={props.disableDefaultClose ? () => {} : handleClose}>
-      {React.cloneElement(props.children, injectedProps)}
+        <div className='web-app-modal-content'>
+          {React.cloneElement(props.children, injectedProps)}
+        </div>
     </Modal>
   );
 };
