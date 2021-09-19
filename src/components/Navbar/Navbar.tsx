@@ -1,8 +1,16 @@
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
+} from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { NAVBAR, TEXT } from '@statics';
-import { useAppDispatch } from '@redux/hooks';
+import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { appActions } from '@redux/generics/AppRedux';
+import { authActions, selectIsLoggedIn } from '@redux/generics/AuthRedux';
 import { CONSTANTS } from '@statics';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
@@ -12,12 +20,31 @@ const Navbar: React.FC<{}> = () => {
   const location = useLocation();
   const dispatch = useAppDispatch();
 
-  const handleOpenLoginModal = () =>
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const handleMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleOpenLoginModal = () => {
     dispatch(
       appActions.openModal({
         key: CONSTANTS.MODALS.LOGIN,
       })
     );
+
+    handleMenuClose();
+  };
+
+  const handleLogout = () => {
+    dispatch(authActions.logout());
+    handleMenuClose();
+  };
 
   const renderedLinks = NAVBAR.map(({ TITLE, REF }) => {
     const active = REF === location.pathname ? 'active' : '';
@@ -37,9 +64,23 @@ const Navbar: React.FC<{}> = () => {
         <Toolbar className="nav-toolbar">
           <Typography className="nav-title">{TEXT.COMMON.TITLE}</Typography>
           <span className="nav-rendered-links">{renderedLinks}</span>
-          <IconButton onClick={handleOpenLoginModal}>
+          <IconButton onClick={handleMenuClick}>
             <AccountCircleIcon />
           </IconButton>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+            MenuListProps={{
+              'aria-labelledby': 'menu-button',
+            }}>
+            {isLoggedIn ? (
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            ) : (
+              <MenuItem onClick={handleOpenLoginModal}>Login</MenuItem>
+            )}
+          </Menu>
         </Toolbar>
       </AppBar>
     </div>

@@ -22,9 +22,15 @@ export const authSlice = createSlice({
     setUsername: (state, { payload }: PayloadAction<string>) => {
       state.username = payload;
     },
+    logout: (state) => {
+      state.username = undefined;
+      state.access_token = undefined;
+      state.refresh_token = undefined;
+    },
   },
 });
 
 export const selectAuth = (state: RootState) => state.auth;
+export const selectIsLoggedIn = (state: RootState) => Boolean(state.auth.refresh_token);
 export const authActions = authSlice.actions;
 export default authSlice.reducer;
