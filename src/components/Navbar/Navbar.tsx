@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -7,13 +9,10 @@ import {
   MenuItem,
 } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { NAVBAR, TEXT } from '@statics';
+import { NAVBAR, TEXT, CONSTANTS } from '@statics';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { appActions } from '@redux/generics/AppRedux';
 import { authActions, selectIsLoggedIn } from '@redux/generics/AuthRedux';
-import { CONSTANTS } from '@statics';
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar: React.FC<{}> = () => {
@@ -76,9 +75,11 @@ const Navbar: React.FC<{}> = () => {
               'aria-labelledby': 'menu-button',
             }}>
             {isLoggedIn ? (
-              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              <MenuItem onClick={handleLogout}>{TEXT.COMMON.LOGOUT}</MenuItem>
             ) : (
-              <MenuItem onClick={handleOpenLoginModal}>Login</MenuItem>
+              <MenuItem onClick={handleOpenLoginModal}>
+                {TEXT.COMMON.LOGIN}
+              </MenuItem>
             )}
           </Menu>
         </Toolbar>
