@@ -4,7 +4,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 
 // Generic reducer imports go here
-import accessControllerReducer from './generics/AccessControllerRedux';
 import appReducer from './generics/AppRedux'
 import authReducer from './generics/AuthRedux';
 // Component/Page reducer imports go here
@@ -18,7 +17,6 @@ const createPersistConfig = (key: string, blacklist?: string[]) => ({
 });
 
 const rootReducer = combineReducers({
-  accessController: persistReducer(createPersistConfig("accessController"), accessControllerReducer),
   app: appReducer,
   auth: persistReducer(createPersistConfig("auth"), authReducer),
 });

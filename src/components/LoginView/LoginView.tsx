@@ -1,4 +1,6 @@
 import React from 'react';
+import { selectIsLoggingIn } from '@redux/generics/AuthRedux';
+import { useAppSelector } from '@redux/hooks';
 import Modal, { ModalInjectedProps } from '@components/generics/Modal';
 import { CONSTANTS, TEXT } from '@statics';
 import { useHandleLogin } from './LoginService';
@@ -9,8 +11,9 @@ type LoginViewProps = Partial<ModalInjectedProps>;
 
 const LoginView: React.FC<LoginViewProps> = (props) => {
   const { handleClose } = props;
+  const isLoggingIn = useAppSelector(selectIsLoggingIn);
 
-  const { handleLogin, isFetching, error, success } = useHandleLogin();
+  const { handleLogin, error, success } = useHandleLogin();
 
   const handleUserLogin = (user: string, pwd: string) => handleLogin(user, pwd);
 
@@ -23,7 +26,7 @@ const LoginView: React.FC<LoginViewProps> = (props) => {
   return (
     <div className="login-view-root">
       <h3 className="login-view-title">{TEXT.LOGIN.TITLE}</h3>
-      <LoginForm onSubmit={handleUserLogin} disabled={isFetching} />
+      <LoginForm onSubmit={handleUserLogin} disabled={isLoggingIn} />
       {error && <p className="login-error">{`Error: ${error}`}</p>}
     </div>
   );

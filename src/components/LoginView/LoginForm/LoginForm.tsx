@@ -22,7 +22,6 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
 
         password: yup
           .string()
-          .min(CONSTANTS.MIN_PASSWORD_LENGTH, TEXT.LOGIN.PASSWORD_LENGTH_ERROR)
           .required(TEXT.LOGIN.PASSWORD_EMPTY_ERROR),
       }),
     []

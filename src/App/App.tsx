@@ -1,15 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from '@components/Navbar';
-import { handleCheckAuth } from './AppService';
+import { useHandleCheckAuth } from './AppService';
 import Switch from './Switch';
 import Modals from './Modals';
 import './App.css';
 
 function App() {
-  React.useEffect(() => {
-    handleCheckAuth();
-  });
+  useHandleCheckAuth();
 
   return (
     <div className="App">

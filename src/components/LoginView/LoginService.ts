@@ -12,6 +12,7 @@ export const useHandleLogin = () => {
 
   const handleLogin = async (username: string, password: string) => {
     setIsFetching(true);
+    dispatch(authActions.setIsLoggingIn(true));
 
     loginUser(username, password)
       .then((res) => {
@@ -19,6 +20,7 @@ export const useHandleLogin = () => {
           dispatch(authActions.setAccessToken(res.data.access_token));
           dispatch(authActions.setRefreshToken(res.data.refresh_token));
           dispatch(authActions.setUsername(res.data.username));
+          dispatch(authActions.setPermissions(res.data.permissions));
 
           setSuccess(res.message);
           setError(null);
@@ -27,7 +29,11 @@ export const useHandleLogin = () => {
           setError(res.message);
         }
       })
-      .then(() => setIsFetching(false));
+      .then(() => {
+        setIsFetching(false);
+        dispatch(authActions.setIsLoggingIn(false));
+      })
+      .catch(() => console.error('Error: LoginService.ts loginUser call'));
   };
 
   return { handleLogin, isFetching, error, success };
