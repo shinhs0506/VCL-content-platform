@@ -1,7 +1,27 @@
-import { useState } from 'react';
-import { loginUser } from '@adapters/authAdapter';
-import { useAppDispatch } from '@redux/hooks';
-import { authActions } from '@redux/generics/AuthRedux';
+import React, { useState } from 'react';
+import { loginUser, checkAuth } from './adapters/authAdapter';
+import { useAppSelector, useAppDispatch } from '@redux/hooks';
+import { selectAuth, authActions } from '@redux/generics/AuthRedux';
+
+export const useHandleCheckAuth = () => {
+  const dispatch = useAppDispatch();
+
+  const { refresh_token, isLoggingIn } = useAppSelector(selectAuth);
+
+  React.useEffect(() => {
+    if (refresh_token && !isLoggingIn) {
+      checkAuth(refresh_token)
+        .then((res) => {
+          if (res.data) {
+            dispatch(authActions.setAccessToken(res.data.access_token));
+          } else {
+            dispatch(authActions.logout());
+          }
+        })
+        .catch(() => console.error('Error: AppService.ts checkAuth call'));
+    }
+  }, [dispatch, isLoggingIn, refresh_token]);
+};
 
 export const useHandleLogin = () => {
   const dispatch = useAppDispatch();

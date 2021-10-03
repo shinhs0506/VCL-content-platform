@@ -60,3 +60,20 @@ export const checkAuth = async (
     return err.response.data as BaseResponse;
   }
 };
+
+export const logoutUser = async (
+  access_token: string
+): Promise<BaseResponse> => {
+  try {
+    const res = await axios.post('/api/users/logout', null, {
+      baseURL,
+      headers: {
+        authorization: access_token,
+      },
+    });
+
+    return res.data as BaseResponse;
+  } catch (err: any) {
+    return err.response.data as BaseResponse;
+  }
+};

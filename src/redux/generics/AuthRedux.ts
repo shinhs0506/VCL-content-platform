@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '@redux/store';
-import { UserType } from '@adapters/authAdapter';
+import { UserType } from '@services/adapters/authAdapter';
 
 interface AuthState {
   access_token?: string;

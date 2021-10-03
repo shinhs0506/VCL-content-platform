@@ -3,7 +3,7 @@ import { selectIsLoggingIn } from '@redux/generics/AuthRedux';
 import { useAppSelector } from '@redux/hooks';
 import Modal, { ModalInjectedProps } from '@components/generics/Modal';
 import { CONSTANTS, TEXT } from '@statics';
-import { useHandleLogin } from './LoginService';
+import { useHandleLogin } from '@services/authService';
 import LoginForm from './LoginForm';
 import './LoginView.css';
 
@@ -21,7 +21,7 @@ const LoginView: React.FC<LoginViewProps> = (props) => {
     if (success) {
       handleClose && handleClose();
     }
-  });
+  }, [handleClose, success]);
 
   return (
     <div className="login-view-root">
