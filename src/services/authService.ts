@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { loginUser, checkAuth } from './adapters/authAdapter';
+import React, { useEffect, useState } from 'react';
+import { loginUser, checkAuth, logoutUser } from './adapters/authAdapter';
 import { useAppSelector, useAppDispatch } from '@redux/hooks';
 import { selectAuth, authActions } from '@redux/generics/AuthRedux';
 
@@ -18,7 +18,7 @@ export const useHandleCheckAuth = () => {
             dispatch(authActions.logout());
           }
         })
-        .catch(() => console.error('Error: AppService.ts checkAuth call'));
+        .catch(() => console.error('Error: authService.ts checkAuth call'));
     }
   }, [dispatch, isLoggingIn, refresh_token]);
 };
@@ -29,6 +29,15 @@ export const useHandleLogin = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+
+  // Cleanup state for component unmounting
+  useEffect(() => {
+    return () => {
+      setIsFetching(false);
+      setError(null);
+      setSuccess(null);
+    };
+  }, []);
 
   const handleLogin = async (username: string, password: string) => {
     setIsFetching(true);
@@ -53,8 +62,26 @@ export const useHandleLogin = () => {
         setIsFetching(false);
         dispatch(authActions.setIsLoggingIn(false));
       })
-      .catch(() => console.error('Error: LoginService.ts loginUser call'));
+      .catch(() => console.error('Error: authService.ts loginUser call'));
   };
 
   return { handleLogin, isFetching, error, success };
+};
+
+export const useHandleLogout = () => {
+  const dispatch = useAppDispatch();
+
+  const { access_token, isLoggingIn } = useAppSelector(selectAuth);
+
+  const logout = async () => {
+    if (access_token && !isLoggingIn) {
+      logoutUser(access_token)
+        .then(() => {
+          dispatch(authActions.logout());
+        })
+        .catch(() => console.error('Error: authService.ts logoutUser call'));
+    }
+  };
+
+  return { logout };
 };

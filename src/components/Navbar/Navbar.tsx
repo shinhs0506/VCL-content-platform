@@ -10,13 +10,15 @@ import {
 } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { NAVBAR, TEXT, CONSTANTS } from '@statics';
+import { useHandleLogout } from '@services/authService';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { appActions } from '@redux/generics/AppRedux';
-import { authActions, selectIsLoggedIn } from '@redux/generics/AuthRedux';
+import { selectIsLoggedIn } from '@redux/generics/AuthRedux';
 import './Navbar.css';
 
 const Navbar: React.FC<{}> = () => {
   const location = useLocation();
+  const { logout } = useHandleLogout();
   const dispatch = useAppDispatch();
 
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
@@ -41,7 +43,7 @@ const Navbar: React.FC<{}> = () => {
   };
 
   const handleLogout = () => {
-    dispatch(authActions.logout());
+    logout();
     handleMenuClose();
   };
 

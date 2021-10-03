@@ -4,7 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 
 // Generic reducer imports go here
-import appReducer from './generics/AppRedux'
+import appReducer from './generics/AppRedux';
 import authReducer from './generics/AuthRedux';
 // Component/Page reducer imports go here
 // ...
@@ -18,11 +18,15 @@ const createPersistConfig = (key: string, blacklist?: string[]) => ({
 
 const rootReducer = combineReducers({
   app: appReducer,
-  auth: persistReducer(createPersistConfig("auth"), authReducer),
+  auth: persistReducer(createPersistConfig('auth'), authReducer),
 });
 
 export const store = configureStore({
   reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export const persistor = persistStore(store);
