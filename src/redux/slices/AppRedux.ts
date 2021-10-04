@@ -13,6 +13,7 @@ export type ValidModalKey =
 interface AppState {
   isReady: boolean;
   modals: Record<ValidModalKey, ModalState>;
+  alert: string | null;
 }
 
 const initialState: AppState = {
@@ -22,6 +23,7 @@ const initialState: AppState = {
       visible: false,
     },
   },
+  alert: null,
 };
 
 export const appSlice = createSlice({
@@ -53,6 +55,9 @@ export const appSlice = createSlice({
         visible: false,
         data: payload.data,
       };
+    },
+    setAlert: (state, { payload }: PayloadAction<string | null>) => {
+      state.alert = payload;
     },
   },
 });

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { loginUser, checkAuth, logoutUser } from './adapters/authAdapter';
 import { useAppSelector, useAppDispatch } from '@redux/hooks';
-import { selectAuth, authActions } from '@redux/generics/AuthRedux';
+import { selectAuth, authActions } from '@redux/slices/AuthRedux';
 
 export const useHandleCheckAuth = () => {
   const dispatch = useAppDispatch();

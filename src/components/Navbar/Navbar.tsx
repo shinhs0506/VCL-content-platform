@@ -12,8 +12,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { NAVBAR, TEXT, CONSTANTS } from '@statics';
 import { useHandleLogout } from '@services/authService';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
-import { appActions } from '@redux/generics/AppRedux';
-import { selectIsLoggedIn } from '@redux/generics/AuthRedux';
+import { appActions } from '@redux/slices/AppRedux';
+import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import './Navbar.css';
 
 const Navbar: React.FC<{}> = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { selectIsLoggingIn } from '@redux/generics/AuthRedux';
+import { selectIsLoggingIn } from '@redux/slices/AuthRedux';
 import { useAppSelector } from '@redux/hooks';
 import Modal, { ModalInjectedProps } from '@components/generics/Modal';
 import { CONSTANTS, TEXT } from '@statics';
