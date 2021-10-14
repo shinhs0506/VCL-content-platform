@@ -3,7 +3,7 @@ import { Snackbar, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { selectApp, appActions } from '@redux/slices/AppRedux';
-import './AlertPopup.scss';
+import './AlertPopup.css';
 
 const AlertPopup = () => {
   const dispatch = useAppDispatch();
@@ -11,7 +11,9 @@ const AlertPopup = () => {
 
   const getIsOpen = () => alert !== null;
 
-  const handleClose = () => {
+  const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+    if (reason === 'clickaway') return;
+
     dispatch(appActions.setAlert(null));
   };
 
@@ -21,8 +23,9 @@ const AlertPopup = () => {
         vertical: 'bottom',
         horizontal: 'left',
       }}
+      key={alert}
       open={getIsOpen()}
-      autoHideDuration={6000}
+      autoHideDuration={5000}
       onClose={handleClose}
       message={alert}
       action={

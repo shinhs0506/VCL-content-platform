@@ -2,25 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { loginUser, checkAuth, logoutUser } from './adapters/authAdapter';
 import { useAppSelector, useAppDispatch } from '@redux/hooks';
 import { selectAuth, authActions } from '@redux/slices/AuthRedux';
+import { appActions } from '@redux/slices/AppRedux';
 
 export const useHandleCheckAuth = () => {
   const dispatch = useAppDispatch();
 
   const { refresh_token, isLoggingIn } = useAppSelector(selectAuth);
 
-  React.useEffect(() => {
+  const handleCheckAuth = () => {
     if (refresh_token && !isLoggingIn) {
       checkAuth(refresh_token)
         .then((res) => {
           if (res.data) {
             dispatch(authActions.setAccessToken(res.data.access_token));
+            dispatch(
+              appActions.setAlert('Authentication successful.')
+            );
           } else {
             dispatch(authActions.logout());
+            dispatch(
+              appActions.setAlert('Authentication failed.')
+            );
           }
         })
         .catch(() => console.error('Error: authService.ts checkAuth call'));
     }
-  }, [dispatch, isLoggingIn, refresh_token]);
+  };
+
+  React.useEffect(() => {
+    handleCheckAuth();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 };
 
 export const useHandleLogin = () => {
@@ -51,6 +63,8 @@ export const useHandleLogin = () => {
           dispatch(authActions.setUsername(res.data.username));
           dispatch(authActions.setPermissions(res.data.permissions));
 
+          dispatch(appActions.setAlert('Successfully logged in.'));
+
           setSuccess(res.message);
           setError(null);
         } else {
@@ -78,6 +92,7 @@ export const useHandleLogout = () => {
       logoutUser(access_token)
         .then(() => {
           dispatch(authActions.logout());
+          dispatch(appActions.setAlert('Successfully logged out.'));
         })
         .catch(() => console.error('Error: authService.ts logoutUser call'));
     }
