@@ -3,6 +3,7 @@ import { loginUser, checkAuth, logoutUser } from './adapters/authAdapter';
 import { useAppSelector, useAppDispatch } from '@redux/hooks';
 import { selectAuth, authActions } from '@redux/slices/AuthRedux';
 import { appActions } from '@redux/slices/AppRedux';
+import { TEXT } from '@statics';
 
 export const useHandleCheckAuth = () => {
   const dispatch = useAppDispatch();
@@ -16,12 +17,12 @@ export const useHandleCheckAuth = () => {
           if (res.data) {
             dispatch(authActions.setAccessToken(res.data.access_token));
             dispatch(
-              appActions.setAlert('Authentication successful.')
+              appActions.setAlert(TEXT.ALERTS.AUTH_SUCCESS)
             );
           } else {
             dispatch(authActions.logout());
             dispatch(
-              appActions.setAlert('Authentication failed.')
+              appActions.setAlert(TEXT.ALERTS.AUTH_FAILED)
             );
           }
         })
@@ -63,7 +64,7 @@ export const useHandleLogin = () => {
           dispatch(authActions.setUsername(res.data.username));
           dispatch(authActions.setPermissions(res.data.permissions));
 
-          dispatch(appActions.setAlert('Successfully logged in.'));
+          dispatch(appActions.setAlert(TEXT.ALERTS.LOGIN_SUCCESS));
 
           setSuccess(res.message);
           setError(null);
@@ -92,7 +93,7 @@ export const useHandleLogout = () => {
       logoutUser(access_token)
         .then(() => {
           dispatch(authActions.logout());
-          dispatch(appActions.setAlert('Successfully logged out.'));
+          dispatch(appActions.setAlert(TEXT.ALERTS.LOGOUT_SUCCESS));
         })
         .catch(() => console.error('Error: authService.ts logoutUser call'));
     }

@@ -28,6 +28,13 @@ const TEXT = {
     ABOUT: 'About',
     RESOURCES: 'Resources',
   },
+
+  ALERTS: {
+    AUTH_SUCCESS: 'Authentication successful.',
+    AUTH_FAILED: 'Authentication failed.',
+    LOGIN_SUCCESS: 'Successfully logged in.',
+    LOGOUT_SUCCESS: 'Successfully logged out.',
+  },
 } as const;
 
 export default TEXT;
