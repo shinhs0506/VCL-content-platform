@@ -2,14 +2,14 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@adapters": ["src/adapters"],
-      "@adapters/*": ["src/adapters/*"],
       "@redux": ["src/redux"],
       "@redux/*": ["src/redux/*"],
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
       "@pages": ["src/pages"],
       "@pages/*": ["src/pages/*"],
+      "@services": ["src/services"],
+      "@services/*": ["src/services/*"],
       "@statics": ["src/statics"],
       "@statics/*": ["src/statics/*"]
     }

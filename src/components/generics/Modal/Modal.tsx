@@ -5,7 +5,7 @@ import {
   ValidModalKey,
   selectModal,
   appActions,
-} from '@redux/generics/AppRedux';
+} from '@redux/slices/AppRedux';
 import './Modal.css';
 
 interface ModalWrapperProps {

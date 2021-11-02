@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import * as yup from 'yup';
 import Button from '@components/generics/Button';
-import { TEXT, CONSTANTS } from '@statics';
+import { TEXT } from '@statics';
 import './LoginForm.css';
 
 interface LoginFormProps {
@@ -17,7 +17,6 @@ const LoginForm: React.FC<LoginFormProps> = (props) => {
       yup.object({
         username: yup
           .string()
-          .min(CONSTANTS.MIN_USERNAME_LENGTH, TEXT.LOGIN.USERNAME_LENGTH_ERROR)
           .required(TEXT.LOGIN.USERNAME_EMPTY_ERROR),
 
         password: yup
