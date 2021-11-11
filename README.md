@@ -1,2 +1,2 @@
-# VCL-documentation-web-app
-Asynchronous documentation web-app built by a subset of Correlation. Features a timeline to document tribal knowledge within our teams.
+# VCL Content Platform
+Documentation web-app built by the coding team. Features a timeline to document tribal knowledge within our teams and dynamic content editing.
