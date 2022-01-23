@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { RouteComponentProps } from 'react-router';
+import { useAppSelector } from '@redux/hooks';
+import { selectProjects } from '@redux/slices/ProjectRedux';
 
 //TODO: refactor Project page to use a Project generic component for displaying project content
 
@@ -11,9 +13,20 @@ interface ProjectProps extends RouteComponentProps<MatchParams> {
 }
 
 const Project: React.FC<ProjectProps> = ({match}) => {
-        return (<div>
+    const projects = useAppSelector(selectProjects); 
+
+    console.log(projects)
+
+        return (
+        <div>
             PROJECT! {match.params.projectid}
-        </div>);
+            <ul>
+            {projects.map((p, i) => {
+                return <li key={i}>{p.name}</li>
+            })} 
+            </ul>
+        </div>
+        );
 }
 
 export default Project

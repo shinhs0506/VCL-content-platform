@@ -1,3 +1,4 @@
+import { useEffect }from 'react';
 import { useAppDispatch } from '@redux/hooks';
 import { projectActions } from '@redux/slices/ProjectRedux';
 import { getAllProjects } from '@services/adapters/projectAdapter'
@@ -15,5 +16,7 @@ export const useHandleGetAllProjects = () => {
             .catch(() => console.error('Error: projectService.ts getAllProjects call'))
     }
 
-    return { handleGetAllProjects }
+    useEffect(() => {
+        handleGetAllProjects();
+    }, []);
 }
