@@ -7,6 +7,7 @@ import {
   IconButton,
   Menu,
   MenuItem,
+  Button,
 } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { NAVBAR, TEXT, CONSTANTS } from '@statics';
@@ -14,6 +15,7 @@ import { useHandleLogout } from '@services/authService';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { appActions } from '@redux/slices/AppRedux';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
+import { selectProjects } from '@redux/slices/ProjectRedux';
 import './Navbar.css';
 
 const Navbar: React.FC<{}> = () => {
@@ -31,7 +33,7 @@ const Navbar: React.FC<{}> = () => {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
-
+  
   const handleOpenLoginModal = () => {
     dispatch(
       appActions.openModal({
@@ -47,16 +49,72 @@ const Navbar: React.FC<{}> = () => {
     handleMenuClose();
   };
 
+  const [projectAnchorEl, setProjectAnchorEl] = React.useState<null | HTMLElement>(null);
+  const projectOpen = Boolean(projectAnchorEl)
+
+  const handleProjectMenuClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setProjectAnchorEl(event.currentTarget);
+  };
+  const handleProjectMenuClose = () => {
+    setProjectAnchorEl(null);
+  };
+
+  const projects = useAppSelector(selectProjects)
+
   const renderedLinks = NAVBAR.map(({ TITLE, REF }) => {
     const active = REF === location.pathname ? 'active' : '';
 
-    return (
-      <React.Fragment key={REF}>
-        <Link className={`nav-link ${active}`} to={REF}>
-          {TITLE}
-        </Link>
-      </React.Fragment>
-    );
+    console.log(TITLE, TEXT.PAGE_TITLES.PROJECTS)
+
+    if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
+        return (
+              <React.Fragment key={REF}>
+                <Button
+                    id='basic-button'
+                    onClick={handleProjectMenuClick}
+                    aria-controls={projectOpen ? 'basic-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={projectOpen ? 'true' : undefined}
+                    style={{textTransform: "none"}}
+                >
+                    {TEXT.PAGE_TITLES.PROJECTS} 
+                </Button>
+                <Menu
+                    id="basic-menu" 
+                    anchorEl={projectAnchorEl}
+                    open={projectOpen}
+                    onClose={handleProjectMenuClose}
+                    MenuListProps={{
+                        'aria-labelledby' : 'basic-button'
+                    }}
+                >
+                <MenuItem onClick={handleProjectMenuClose} component={Link} to={`/${TITLE}/overview`}>
+                    Overview
+                </MenuItem>
+                {
+                    projects.map((e, i) => {
+                        return <MenuItem 
+                        key={i}
+                        onClick={handleProjectMenuClose}
+                        component={Link}
+                        to={`/${TITLE}/${e.name}`}>
+                            {e.name}
+                        </MenuItem>
+                    })
+                }
+
+                </Menu>
+              </React.Fragment>
+            )
+    } else {
+        return (
+              <React.Fragment key={REF}>
+                <Link className={`nav-link ${active}`} to={REF}>
+                  {TITLE}
+                </Link>
+              </React.Fragment>
+            )
+    };
   });
 
   return (
