@@ -11,7 +11,6 @@ import './App.css';
 function App() {
   useHandleCheckAuth();
   useHandleGetAllProjects();
-  console.log('in app');
 
   return (
     <div className="App">

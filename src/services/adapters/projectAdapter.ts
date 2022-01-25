@@ -6,10 +6,9 @@ interface ProjectResponse extends BaseResponse {
     data? : Project[]
 } 
 
-export const getAllProjects = async (): Promise<ProjectResponse> => {
+export const callGetAllProjectsAPI = async (): Promise<ProjectResponse> => {
     try {
         const res = await projectAPI.getAllProjects()
-
         return res.data as ProjectResponse;
     } catch (err: any) {
         return err.response.data as BaseResponse;

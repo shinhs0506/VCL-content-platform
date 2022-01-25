@@ -15,7 +15,6 @@ export const projectSlice = createSlice({
     initialState,
     reducers: {
         setProjects: (state, { payload }: PayloadAction<Project[]>) => {
-            console.log(payload);
             state.projects = payload;
         },
         addProject: (state, { payload }: PayloadAction<Project>) => {
@@ -34,10 +33,6 @@ export const projectSlice = createSlice({
 
 export const selectProject = (state: RootState) => state.project;
 export const selectProjects = (state: RootState) => state.project.projects;
-export const selectProjectByName = (state: RootState, name: string) => {
-    let index = state.project.projects.map((e) => e.name).indexOf(name);
-    return index === -1 ? null : state.project.projects[index]; 
-}
 
 export const projectActions = projectSlice.actions;
 export default projectSlice.reducer;

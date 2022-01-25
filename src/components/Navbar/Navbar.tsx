@@ -64,8 +64,6 @@ const Navbar: React.FC<{}> = () => {
   const renderedLinks = NAVBAR.map(({ TITLE, REF }) => {
     const active = REF === location.pathname ? 'active' : '';
 
-    console.log(TITLE, TEXT.PAGE_TITLES.PROJECTS)
-
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
         return (
               <React.Fragment key={REF}>

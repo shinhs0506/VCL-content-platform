@@ -9,14 +9,10 @@ export default class ProjectAPI {
         try {
             const response = await axios.get("/api/projects", {
                 baseURL,
-                headers: {
-                    authorization: "access",
-                },
             });
-
             return response;
         } catch (e) {
-            return e;
+            throw e;
         }
     }
 }
