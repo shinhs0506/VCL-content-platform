@@ -6,6 +6,7 @@ import { callGetAllProjectsAPI } from '@services/adapters/projectAdapter'
 
 export const useHandleGetAllProjects = () => {
     const dispatch = useAppDispatch();
+    dispatch(projectActions.setIsProjectLoading(true));
 
     const handleGetAllProjects = async () => {
         callGetAllProjectsAPI()
@@ -16,7 +17,12 @@ export const useHandleGetAllProjects = () => {
                     dispatch(appActions.setAlert(res.message));
                 }
             })
-            .catch(() => console.error('Error: projectService.ts getAllProjects call'))
+            .then(() => {
+                dispatch(projectActions.setIsProjectLoading(false))
+            })
+            .catch(() => {
+                console.error('Error: projectService.ts getAllProjects call')
+            })
     }
 
     useEffect(() => {

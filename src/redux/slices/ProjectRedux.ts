@@ -3,10 +3,12 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 import { Project } from '@components/generics/Project/Project'
 
 export interface ProjectState {
+    isProjectLoading: boolean,
     projects: Project[]
 }
 
 const initialState: ProjectState = {
+    isProjectLoading: false,
     projects: []
 }
 
@@ -14,6 +16,9 @@ export const projectSlice = createSlice({
     name: 'project',
     initialState,
     reducers: {
+        setIsProjectLoading: (state, { payload }: PayloadAction<boolean>) => {
+            state.isProjectLoading = payload;
+        },
         setProjects: (state, { payload }: PayloadAction<Project[]>) => {
             state.projects = payload;
         },
@@ -33,6 +38,7 @@ export const projectSlice = createSlice({
 
 export const selectProject = (state: RootState) => state.project;
 export const selectProjects = (state: RootState) => state.project.projects;
+export const selectIsProjectLoading = (state: RootState) => state.project.isProjectLoading;
 
 export const projectActions = projectSlice.actions;
 export default projectSlice.reducer;
