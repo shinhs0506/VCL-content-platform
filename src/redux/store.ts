@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage';
 // Reducer imports go here
 import appReducer from './slices/AppRedux';
 import authReducer from './slices/AuthRedux';
+import projectReducer from './slices/ProjectRedux';
 
 // Persist config
 const createPersistConfig = (key: string, blacklist?: string[]) => ({
@@ -17,6 +18,7 @@ const createPersistConfig = (key: string, blacklist?: string[]) => ({
 const rootReducer = combineReducers({
   app: appReducer,
   auth: persistReducer(createPersistConfig('auth'), authReducer),
+  project: projectReducer
 });
 
 export const store = configureStore({
