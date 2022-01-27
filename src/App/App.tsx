@@ -8,6 +8,7 @@ import Switch from './Switch';
 import Modals from './Modals';
 import Footer from '@components/Footer'
 import './App.css';
+import '@components/Footer/Footer.css'
 
 function App() {
   useHandleCheckAuth();
@@ -15,129 +16,13 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-        <Switch />
-        <Modals />
-        <AlertPopup />
-        <div>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-         <ul>1</ul>
-        </div>
-        <Footer />
-      </Router>
+        <Router>
+            <Navbar />
+            <Switch />
+            <Modals />
+            <AlertPopup />
+            <Footer />
+        </Router>
     </div>
   );
 }
