@@ -1,10 +1,12 @@
 import React from 'react';
 import { TEXT, NAVBAR } from '@statics';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '@redux/hooks';
+import { selectProjects } from '@redux/slices/ProjectRedux';
 import './Footer.css'
 const Footer = () => {
 
-    const renderedLinks = NAVBAR.map(({ TITLE, REF }) => {
+    const renderedNavLinks = NAVBAR.map(({ TITLE, REF }) => {
             return (
             <React.Fragment key={REF}>
             <Link to={REF}>{TITLE} </Link>
@@ -12,6 +14,16 @@ const Footer = () => {
                    )
             })
 
+    const projects = useAppSelector(selectProjects);
+    const renderedProjectLinks = projects.map((project) => {
+            return (
+            <React.Fragment key={project.name}>
+            <Link to={`/${TEXT.PAGE_TITLES.PROJECTS}`}>{project.name}</Link>
+            </React.Fragment>
+                   )
+            })
+
+    // TODO: insert UBC logo
     return (
             <>
                 <div className="left">
@@ -23,7 +35,11 @@ const Footer = () => {
                 </div>
 
                 <div className="right">
-               {renderedLinks}
+               {renderedNavLinks}
+                </div>
+
+                <div>
+                {renderedProjectLinks}
                 </div>
             </>
 
