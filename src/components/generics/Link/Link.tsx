@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 
 interface LinkProps {
     name: string;
-    re: string;
+    to: string;
     className?: string;
 }
 
 const GenericLink: React.FC<LinkProps> = (props) => {
-    const { name , re, className } = props;
+    const { name , to, className } = props;
 
     return (
-        <React.Fragment key={re}>
-            <Link className={className} to={re}>{name}</Link>
+        <React.Fragment key={to}>
+            <Link className={className} to={to}>{name}</Link>
         </React.Fragment>
     )
 

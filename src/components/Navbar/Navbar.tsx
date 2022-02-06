@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -10,7 +10,7 @@ import {
   Button,
 } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { NAVBAR, TEXT, CONSTANTS } from '@statics';
+import { NAV, TEXT, CONSTANTS } from '@statics';
 import { useHandleLogout } from '@services/authService';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { appActions } from '@redux/slices/AppRedux';
@@ -62,7 +62,7 @@ const Navbar: React.FC<{}> = () => {
 
   const projects = useAppSelector(selectProjects)
 
-  const renderedLinks = NAVBAR.map(({ TITLE, REF }) => {
+  const renderedLinks = NAV.map(({ TITLE, REF }) => {
     const active = REF === location.pathname ? 'active' : '';
 
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
@@ -88,10 +88,7 @@ const Navbar: React.FC<{}> = () => {
                     }}
                 >
                     <MenuItem onClick={handleProjectMenuClose}>
-                                <GenericLink
-                                    name="Overview"
-                                    re={`/${TITLE}/overview`} 
-                                />
+                                <GenericLink name="Overview" to={`/${TITLE}/overview`}/>
                     </MenuItem>
                     {
                         projects.map((e, i) => {
@@ -101,7 +98,7 @@ const Navbar: React.FC<{}> = () => {
                                 onClick={handleProjectMenuClose}>
                                     <GenericLink
                                         name={e.name}
-                                        re={`/${TEXT.PAGE_TITLES.PROJECTS}/${e.name}`}
+                                        to={`/${TEXT.PAGE_TITLES.PROJECTS}/${e.name}`}
                                     />
                                 </MenuItem>
                             )
@@ -112,11 +109,12 @@ const Navbar: React.FC<{}> = () => {
             )
     } else {
         return (
-                <GenericLink
-                    name={TITLE}
-                    re={REF}
-                    className={`nav-link ${active}`}
-                />
+            <GenericLink 
+                key={REF} 
+                name={TITLE} 
+                to={REF} 
+                className={`nav-link ${active}`}
+            />
             )
     };
   });

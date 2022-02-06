@@ -3,30 +3,22 @@
     left: 0;
     bottom: 0;
     right: 0;
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
 }
 
 .info {
     position: absolute;
-    left: 0px;
-    text-align: left;
+    left: 5vw;
 }
 
 .nav {
     position: absolute;
-    left: 80vw;
-    word-spacing: 100vw;
-    width: 10vw;
-    text-align: left;
-    list-style: none;
-    padding-left: 0;
+    right: 15vw;
 }
 
 .project {
     position: absolute;
-    left: 85vw;
-    word-spacing: 100vw;
-    width: 10;
-    text-align: left;
-    list-style: none;
-    padding-left: 0;
+    right: 5vw;
 }

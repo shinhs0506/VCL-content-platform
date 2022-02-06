@@ -42,7 +42,7 @@ const TEXT = {
       FAX: '604 822 6923',
       EMAIL: 'vclmanager@gmail.com',
       DRRENSINK_CONTACT: 'rensink@psych.ubc.ca',
-      CAMPUS: 'Vanocuver Campus'
+      CAMPUS: 'Vancouver Campus'
   }
 } as const;
 

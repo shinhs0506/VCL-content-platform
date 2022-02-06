@@ -1,5 +1,5 @@
 import React from 'react';
-import { TEXT, NAVBAR } from '@statics';
+import { TEXT, NAV } from '@statics';
 import { useAppSelector } from '@redux/hooks';
 import { selectProjects } from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link';
@@ -9,28 +9,25 @@ const Footer = () => {
 
     const projects = useAppSelector(selectProjects);
 
-    // TODO: insert UBC logo
     return (
-            <>
+            <div className="footer">
+                {/* TODO: insert UBC logo */}
                 {/* lab information */}
                 <div className="info">
-                    <ul>Tel {TEXT.LAB_INFO.TEL}</ul>
-                    <ul>Fax {TEXT.LAB_INFO.FAX}</ul>
-                    <ul>Lab {TEXT.LAB_INFO.EMAIL}</ul>
-                    <ul>Dr. Rensink {TEXT.LAB_INFO.DRRENSINK_CONTACT}</ul>
-                    <ul>{TEXT.COMMON.TITLE} {TEXT.LAB_INFO.CAMPUS}</ul>
+                    <li>Tel {TEXT.LAB_INFO.TEL}</li>
+                    <li>Fax {TEXT.LAB_INFO.FAX}</li>
+                    <li>Lab {TEXT.LAB_INFO.EMAIL}</li>
+                    <li>Dr. Rensink {TEXT.LAB_INFO.DRRENSINK_CONTACT}</li>
+                    <li>{TEXT.COMMON.TITLE} {TEXT.LAB_INFO.CAMPUS}</li>
                 </div>
 
                 {/* navigation links */}
                 <div className="nav">
                     {TEXT.PAGE_TITLES.NAVIGATE} 
-                    {NAVBAR.map(({ TITLE, REF }) => {
+                    {NAV.map(({ TITLE, REF }) => {
                         return (
-                            <li>
-                                <GenericLink 
-                                    name={TITLE}
-                                    re={REF}
-                                />
+                            <li key={REF}>
+                                <GenericLink name={TITLE} to={REF}/>
                             </li>
                         )
                     })}
@@ -39,18 +36,18 @@ const Footer = () => {
                 {/* project links */}
                 <div className="project">
                     {TEXT.PAGE_TITLES.PROJECTS} 
-                    {projects.map((project) => {
+                    {projects.map((project, i) => {
                         return (
-                            <li>
+                            <li key={i}>
                                 <GenericLink 
                                     name={project.name}
-                                    re={`/${TEXT.PAGE_TITLES.PROJECTS}/${project.name}`}
+                                    to={`/${TEXT.PAGE_TITLES.PROJECTS}/${project.name}`}
                                 />
                             </li>
                         ) 
                     })}
                 </div>
-            </>
+            </div>
 
            )       
 }

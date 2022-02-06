@@ -8,7 +8,6 @@ import Switch from './Switch';
 import Modals from './Modals';
 import Footer from '@components/Footer'
 import './App.css';
-import '@components/Footer/Footer.css'
 
 function App() {
   useHandleCheckAuth();
