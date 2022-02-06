@@ -16,6 +16,7 @@ import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { appActions } from '@redux/slices/AppRedux';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectProjects } from '@redux/slices/ProjectRedux';
+import GenericLink from '@components/generics/Link';
 import './Navbar.css';
 
 const Navbar: React.FC<{}> = () => {
@@ -86,31 +87,36 @@ const Navbar: React.FC<{}> = () => {
                         'aria-labelledby' : 'basic-button'
                     }}
                 >
-                <MenuItem onClick={handleProjectMenuClose} component={Link} to={`/${TITLE}/overview`}>
-                    Overview
-                </MenuItem>
-                {
-                    projects.map((e, i) => {
-                        return <MenuItem 
-                        key={i}
-                        onClick={handleProjectMenuClose}
-                        component={Link}
-                        to={`/${TITLE}/${e.name}`}>
-                            {e.name}
-                        </MenuItem>
-                    })
-                }
-
+                    <MenuItem onClick={handleProjectMenuClose}>
+                                <GenericLink
+                                    name="Overview"
+                                    re={`/${TITLE}/overview`} 
+                                />
+                    </MenuItem>
+                    {
+                        projects.map((e, i) => {
+                            return (
+                                <MenuItem 
+                                key={i}
+                                onClick={handleProjectMenuClose}>
+                                    <GenericLink
+                                        name={e.name}
+                                        re={`/${TEXT.PAGE_TITLES.PROJECTS}/${e.name}`}
+                                    />
+                                </MenuItem>
+                            )
+                        })
+                    }
                 </Menu>
               </React.Fragment>
             )
     } else {
         return (
-              <React.Fragment key={REF}>
-                <Link className={`nav-link ${active}`} to={REF}>
-                  {TITLE}
-                </Link>
-              </React.Fragment>
+                <GenericLink
+                    name={TITLE}
+                    re={REF}
+                    className={`nav-link ${active}`}
+                />
             )
     };
   });
