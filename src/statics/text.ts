@@ -22,6 +22,7 @@ const TEXT = {
   },
 
   PAGE_TITLES: {
+    NAVIGATE: 'Navigate',
     HOME: 'Home',
     TIMELINE: 'Timeline',
     PROJECTS: 'Projects',
