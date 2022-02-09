@@ -5,8 +5,6 @@ interface OverviewParams {
 }
 
 const Overview: React.FC<OverviewParams> = (project) => {
-    console.log("i am in overview")
-    console.log(project.project_names);
 
     return (
         <div>
