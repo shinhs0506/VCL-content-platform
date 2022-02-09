@@ -86,7 +86,7 @@ const Navbar: React.FC<{}> = () => {
                         'aria-labelledby' : 'basic-button'
                     }}
                 >
-                <MenuItem onClick={handleProjectMenuClose} component={Link} to={`/${TITLE}/overview`}>
+                <MenuItem onClick={handleProjectMenuClose} component={Link} to={`/${TITLE}/Overview`}>
                     Overview
                 </MenuItem>
                 {

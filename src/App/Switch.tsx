@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import ROUTES from '@statics/routes';
 import Timeline from '@pages/Timeline';
 import Home from '@pages/Home';
-import Project from '@pages/Project';
+import { Project } from '@pages/Project';
 import About from '@pages/About';
 import Resources from '@pages/Resources';
 
