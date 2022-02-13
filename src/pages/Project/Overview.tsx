@@ -8,10 +8,14 @@ const Overview: React.FC<OverviewParams> = (project) => {
 
     return (
         <div>
+        <div>
+            All Projects
+        </div>
+            <div>
                 {project.project_names.map((name, i) => {
-                {console.log(name)}
                     return <li key={i}>{name}</li>
                         })}
+            </div>
         </div>
            )
 }

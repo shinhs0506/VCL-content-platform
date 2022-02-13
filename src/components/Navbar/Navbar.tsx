@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -10,12 +10,13 @@ import {
   Button,
 } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { NAVBAR, TEXT, CONSTANTS } from '@statics';
+import { NAV, TEXT, CONSTANTS } from '@statics';
 import { useHandleLogout } from '@services/authService';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { appActions } from '@redux/slices/AppRedux';
 import { selectIsLoggedIn } from '@redux/slices/AuthRedux';
 import { selectProjects } from '@redux/slices/ProjectRedux';
+import GenericLink from '@components/generics/Link';
 import './Navbar.css';
 
 const Navbar: React.FC<{}> = () => {
@@ -61,7 +62,7 @@ const Navbar: React.FC<{}> = () => {
 
   const projects = useAppSelector(selectProjects)
 
-  const renderedLinks = NAVBAR.map(({ TITLE, REF }) => {
+  const renderedLinks = NAV.map(({ TITLE, REF }) => {
     const active = REF === location.pathname ? 'active' : '';
 
     if (TITLE === TEXT.PAGE_TITLES.PROJECTS) {
@@ -86,31 +87,34 @@ const Navbar: React.FC<{}> = () => {
                         'aria-labelledby' : 'basic-button'
                     }}
                 >
-                <MenuItem onClick={handleProjectMenuClose} component={Link} to={`/${TITLE}/Overview`}>
-                    Overview
-                </MenuItem>
-                {
-                    projects.map((e, i) => {
-                        return <MenuItem 
-                        key={i}
-                        onClick={handleProjectMenuClose}
-                        component={Link}
-                        to={`/${TITLE}/${e.name}`}>
-                            {e.name}
-                        </MenuItem>
-                    })
-                }
-
+                    <MenuItem onClick={handleProjectMenuClose}>
+                                <GenericLink name="Overview" to={`/${TITLE}/overview`}/>
+                    </MenuItem>
+                    {
+                        projects.map((e, i) => {
+                            return (
+                                <MenuItem 
+                                key={i}
+                                onClick={handleProjectMenuClose}>
+                                    <GenericLink
+                                        name={e.name}
+                                        to={`/${TEXT.PAGE_TITLES.PROJECTS}/${e.name}`}
+                                    />
+                                </MenuItem>
+                            )
+                        })
+                    }
                 </Menu>
               </React.Fragment>
             )
     } else {
         return (
-              <React.Fragment key={REF}>
-                <Link className={`nav-link ${active}`} to={REF}>
-                  {TITLE}
-                </Link>
-              </React.Fragment>
+            <GenericLink 
+                key={REF} 
+                name={TITLE} 
+                to={REF} 
+                className={`nav-link ${active}`}
+            />
             )
     };
   });
