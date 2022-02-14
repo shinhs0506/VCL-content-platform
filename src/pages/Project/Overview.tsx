@@ -1,7 +1,10 @@
 import React from 'react'
+import { Project } from '@components/generics/Project/Project'
+import GenericLink from '@components/generics/Link'
+import { ROUTES } from '@statics';
 
 interface OverviewParams {
-    project_names: string[];
+    projects: Project[];
 }
 
 const Overview: React.FC<OverviewParams> = (project) => {
@@ -12,9 +15,14 @@ const Overview: React.FC<OverviewParams> = (project) => {
                 All Projects
             </div>
             <div>
-                {project.project_names.map((name, i) => {
-                    return <li key={i}>{name}</li>
-                        })}
+                {project.projects.map((project, i) => {
+                    return (
+                        <li key={i}>
+                            <GenericLink name={project.name} 
+                                        to={`${ROUTES.PROJECT.BASE}/${project.name}`}/>
+                        </li>
+                    )
+                })}
             </div>
         </div>
            )

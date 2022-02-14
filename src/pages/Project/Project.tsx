@@ -5,6 +5,7 @@ import { selectProjects } from '@redux/slices/ProjectRedux';
 import { TEXT } from '@statics'
 import Overview from './Overview'
 import GenericProject from '@components/generics/Project/Project'
+import { Project } from '@components/generics/Project/Project'
 
 //TODO: refactor Project page to use a Project generic component for displaying project content
 
@@ -15,7 +16,7 @@ interface MatchParams {
 interface ProjectProps extends RouteComponentProps<MatchParams> {
 }
 
-const Project: React.FC<ProjectProps> = ({match}) => {
+const ProjectPage: React.FC<ProjectProps> = ({match}) => {
     const projects = useAppSelector(selectProjects); 
     const project_names = ['a', 'b', 'c'];
     const test_project = {
@@ -25,15 +26,13 @@ const Project: React.FC<ProjectProps> = ({match}) => {
         isActive: true,
     }
 
-    //TODO: pass this to the generic project component
-    const curr_project = projects.find(project => project.name === match.params.project_id)
+    const curr_project: Project | undefined = projects.find(project => project.name === match.params.project_id)
     
-    console.log(match.params.project_id)
-    console.log(TEXT.PAGE_TITLES.OVERVIEW);
+    const isOverviewPage: boolean = match.params.project_id === TEXT.PAGE_TITLES.OVERVIEW.toLowerCase();
 
-    return match.params.project_id === TEXT.PAGE_TITLES.OVERVIEW ? 
-            <Overview project_names={project_names}/> : 
-            <GenericProject project={test_project}/>;
+    return isOverviewPage ? <Overview projects={projects}/> : 
+        curr_project !== undefined ? <GenericProject project={curr_project}/> :
+        <div> Undefined Project Page</div>;
 }
 
-export default Project
+export default ProjectPage

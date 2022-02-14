@@ -1,5 +1,5 @@
 import React from 'react';
-import { TEXT, NAV } from '@statics';
+import { TEXT, NAV, ROUTES } from '@statics';
 import { useAppSelector } from '@redux/hooks';
 import { selectProjects } from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link';
@@ -41,7 +41,7 @@ const Footer = () => {
                             <li key={i}>
                                 <GenericLink 
                                     name={project.name}
-                                    to={`/${TEXT.PAGE_TITLES.PROJECTS}/${project.name}`}
+                                    to={`${ROUTES.PROJECT.BASE}/${project.name}`}
                                 />
                             </li>
                         ) 
