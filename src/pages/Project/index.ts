@@ -1,2 +1,3 @@
-export { default as Project } from "./Project";
-export { default as Overview } from "./Overview"
+export { default as Project } from "./main";
+export { default as OverviewPage } from "./Overview"
+export { default as ProjectPage } from "./Project"

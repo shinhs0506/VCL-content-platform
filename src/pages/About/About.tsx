@@ -2,7 +2,7 @@ import React from 'react';
 
 interface AboutProps {};
 
-const About: React.FC<AboutProps> = props => {
+const AboutPage: React.FC<AboutProps> = props => {
 	return (
 		<div>
 			<div>This is the about page</div>
@@ -10,4 +10,4 @@ const About: React.FC<AboutProps> = props => {
 	);
 };
 
-export default About;
+export default AboutPage;

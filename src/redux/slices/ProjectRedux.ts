@@ -1,6 +1,6 @@
 import {RootState} from "@redux/store";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import { Project } from '@components/generics/Project/Project'
+import { Project } from '@entities/Project'
 
 export interface ProjectState {
     isProjectLoading: boolean,

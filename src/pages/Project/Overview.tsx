@@ -1,5 +1,5 @@
 import React from 'react'
-import { Project } from '@components/generics/Project/Project'
+import { Project } from '@entities/Project'
 import GenericLink from '@components/generics/Link'
 import { ROUTES } from '@statics';
 
@@ -7,7 +7,8 @@ interface OverviewParams {
     projects: Project[];
 }
 
-const Overview: React.FC<OverviewParams> = (project) => {
+const OverviewPage: React.FC<OverviewParams> = (props) => {
+    console.log(props);
 
     return (
         <div>
@@ -15,7 +16,7 @@ const Overview: React.FC<OverviewParams> = (project) => {
                 All Projects
             </div>
             <div>
-                {project.projects.map((project, i) => {
+                {props.projects.map((project, i) => {
                     return (
                         <li key={i}>
                             <GenericLink name={project.name} 
@@ -28,5 +29,5 @@ const Overview: React.FC<OverviewParams> = (project) => {
            )
 }
 
-export default Overview;
+export default OverviewPage;
 
