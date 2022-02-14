@@ -2,7 +2,7 @@ import React from "react";
 
 interface HomeProps {}
 
-const HomePage: React.FC<HomeProps> = (props) => {
+const Home: React.FC<HomeProps> = (props) => {
   return (
     <div>
       <div>HI THIS IS THE LANDING PAGE</div>
@@ -10,4 +10,4 @@ const HomePage: React.FC<HomeProps> = (props) => {
   );
 };
 
-export default HomePage;
+export default Home;

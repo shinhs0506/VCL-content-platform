@@ -8,7 +8,6 @@ interface OverviewParams {
 }
 
 const OverviewPage: React.FC<OverviewParams> = (props) => {
-    console.log(props);
 
     return (
         <div>
