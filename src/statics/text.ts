@@ -22,6 +22,7 @@ const TEXT = {
   },
 
   PAGE_TITLES: {
+    NAVIGATE: 'Navigate',
     HOME: 'Home',
     TIMELINE: 'Timeline',
     PROJECTS: 'Projects',
@@ -35,6 +36,14 @@ const TEXT = {
     LOGIN_SUCCESS: 'Successfully logged in.',
     LOGOUT_SUCCESS: 'Successfully logged out.',
   },
+
+  LAB_INFO: {
+      TEL: '604 822 9653',
+      FAX: '604 822 6923',
+      EMAIL: 'vclmanager@gmail.com',
+      DRRENSINK_CONTACT: 'rensink@psych.ubc.ca',
+      CAMPUS: 'Vancouver Campus'
+  }
 } as const;
 
 export default TEXT;

@@ -1,7 +1,7 @@
 import ROUTES from "./routes";
 import TEXT from "./text";
 
-const NAVBAR = [
+const NAV = [
 	{
 		TITLE: TEXT.PAGE_TITLES.HOME,
 		REF: ROUTES.HOME
@@ -12,7 +12,7 @@ const NAVBAR = [
 	},
 	{
 		TITLE: TEXT.PAGE_TITLES.PROJECTS,
-		REF: ROUTES.PROJECT.BASE
+		REF: ROUTES.PROJECT.OVERVIEW
 	},
 	{
 		TITLE: TEXT.PAGE_TITLES.ABOUT,
@@ -24,4 +24,4 @@ const NAVBAR = [
 	}
 ];
 
-export default NAVBAR;
+export default NAV;
