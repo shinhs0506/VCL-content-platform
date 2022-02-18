@@ -26,6 +26,7 @@ const TEXT = {
     HOME: 'Home',
     TIMELINE: 'Timeline',
     PROJECTS: 'Projects',
+    OVERVIEW: 'Overview',
     ABOUT: 'About',
     RESOURCES: 'Resources',
   },

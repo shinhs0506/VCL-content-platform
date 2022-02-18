@@ -1,30 +1,17 @@
-import React from 'react'
-import { RouteComponentProps } from 'react-router';
-import { useAppSelector } from '@redux/hooks';
-import { selectProjects } from '@redux/slices/ProjectRedux';
+import React from 'react';
+import { Project } from '@entities/Project'
 
-//TODO: refactor Project page to use a Project generic component for displaying project content
-
-interface MatchParams {
-    project_id: string;
+interface ProjectProps {
+    project : Project,
 }
 
-interface ProjectProps extends RouteComponentProps<MatchParams> {
-}
-
-const Project: React.FC<ProjectProps> = ({match}) => {
-    const projects = useAppSelector(selectProjects); 
-
+const ProjectPage: React.FC<ProjectProps> = (props) => {
+    
     return (
-    <div>
-        this is {match.params.project_id} page
-        <ul>
-        {projects.map((p, i) => {
-            return <li key={i}>{p.name}</li>
-        })} 
-        </ul>
-    </div>
-    );
-}
+        <div>
+            main page for {props.project.name}
+        </div>
+           );
+};
 
-export default Project
+export default ProjectPage;

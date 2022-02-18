@@ -10,7 +10,7 @@ import {
   Button,
 } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { NAV, TEXT, CONSTANTS } from '@statics';
+import { NAV, TEXT, CONSTANTS, ROUTES } from '@statics';
 import { useHandleLogout } from '@services/authService';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
 import { appActions } from '@redux/slices/AppRedux';
@@ -88,7 +88,7 @@ const Navbar: React.FC<{}> = () => {
                     }}
                 >
                     <MenuItem onClick={handleProjectMenuClose}>
-                                <GenericLink name="Overview" to={`/${TITLE}/overview`}/>
+                                <GenericLink name="Overview" to={`${ROUTES.PROJECT.OVERVIEW}`}/>
                     </MenuItem>
                     {
                         projects.map((e, i) => {
@@ -98,7 +98,7 @@ const Navbar: React.FC<{}> = () => {
                                 onClick={handleProjectMenuClose}>
                                     <GenericLink
                                         name={e.name}
-                                        to={`/${TEXT.PAGE_TITLES.PROJECTS}/${e.name}`}
+                                        to={`${ROUTES.PROJECT.BASE}/${e.name}`}
                                     />
                                 </MenuItem>
                             )

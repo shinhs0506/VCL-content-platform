@@ -6,6 +6,8 @@
       "@redux/*": ["src/redux/*"],
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
+      "@entities": ["src/entities"],
+      "@entities/*": ["src/entities/*"],
       "@pages": ["src/pages"],
       "@pages/*": ["src/pages/*"],
       "@services": ["src/services"],
