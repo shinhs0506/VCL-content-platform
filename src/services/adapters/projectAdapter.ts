@@ -1,6 +1,6 @@
 import type { BaseResponse } from './types'
 import projectAPI from '../api/projectAPI'
-import { Project } from '@components/generics/Project/Project'
+import { Project } from '@entities/Project'
 
 interface ProjectResponse extends BaseResponse {
     data? : Project[]

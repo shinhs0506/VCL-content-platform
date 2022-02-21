@@ -3,6 +3,7 @@ const ROUTES = {
   PROJECT: {
     PATH: '/projects/:project_id',
     BASE: '/projects',
+    OVERVIEW: '/projects/overview',
   },
   TIMELINE: '/timeline',
   ABOUT: '/about',
