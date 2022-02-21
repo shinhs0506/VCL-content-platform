@@ -14,6 +14,7 @@ interface ProjectProps extends RouteComponentProps<MatchParams> {
 }
 
 const Main: React.FC<ProjectProps> = ({match}) => {
+    console.log(match);
     const projects = useAppSelector(selectProjects); 
 
     const curr_project: Project | undefined = projects.find(project => project.name === match.params.project_id)

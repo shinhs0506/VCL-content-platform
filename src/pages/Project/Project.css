@@ -1,0 +1,23 @@
+.project-page {
+    display: grid;
+    grid-template-columns: 10%;
+}
+
+.project-page .expand {
+}
+
+.content-container {
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+.content-container .expand {
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.sidebar {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+}

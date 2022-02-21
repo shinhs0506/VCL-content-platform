@@ -11,8 +11,8 @@ const AppSwitch = () => {
   return (
     <Switch>
       <Route exact path={ROUTES.TIMELINE} component={Timeline} />
-      //<Route exact path={ROUTES.PROJECT.PATH} component={Project} />
-      //<Route exact path={ROUTES.PROJECT.BASE} component={Project} />
+      <Route exact path={ROUTES.PROJECT.PATH} component={Project} />
+      <Route exact path={ROUTES.PROJECT.NAV} component={Project} />
       <Route exact path={ROUTES.HOME} component={Home} />
       <Route exact path={ROUTES.ABOUT} component={About} />
       <Route exact path={ROUTES.RESOURCES} component={Resources} />
