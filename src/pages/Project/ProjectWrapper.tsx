@@ -2,10 +2,8 @@ import React from 'react'
 import { RouteComponentProps, Switch, Route } from 'react-router';
 import { useAppSelector } from '@redux/hooks';
 import { selectProjects } from '@redux/slices/ProjectRedux';
-import { TEXT } from '@statics'
 import ROUTES from '@statics/routes';
 import { 
-ProjectOverview, 
 ProjectDefault, 
 ProjectJoin,
 ProjectResources,
@@ -14,6 +12,7 @@ ProjectContact } from './'
 import { Project } from '@entities/Project'
 import PROJECT_NAV from '@statics/projectNav'
 import ProjectNavbar from '@components/ProjectNavbar'
+import "./Project.css"
 
 interface MatchParams {
     project_id: string;
@@ -25,6 +24,7 @@ interface ProjectProps extends RouteComponentProps<MatchParams> {
 const ProjectWrapper: React.FC<ProjectProps> = ({match}) => {
     const [ selected, setSelected ] = React.useState(true);
     const expand = selected? '' : 'expand'
+    // TODO: add a button open/close the sidebar
 
     const projects = useAppSelector(selectProjects); 
 
@@ -41,11 +41,9 @@ const ProjectWrapper: React.FC<ProjectProps> = ({match}) => {
             }
     })
 
-    console.log(match.url)
-
     return (
-        <div className={"project-page" + expand}>
-            <div className={"content-container" + expand}>
+        <div className={"project-page"}>
+            <div className={"content-container"}>
                 <Switch>
                     <Route exact path={match.url} render={() => <ProjectDefault project={curr_project}/>}/>
                     <Route exact path={`${match.url}/join`} render={() => <ProjectJoin project={curr_project}/>}/>

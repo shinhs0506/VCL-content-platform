@@ -1,17 +1,14 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { Drawer, List, ListItem } from '@material-ui/core'; 
-import GenericLink from '@components/generics/Link';
+import { Link } from 'react-router-dom';
+import { Drawer, List, ListItem, ListItemText } from '@material-ui/core'; 
+import "./ProjectNavbar.css"
 
 interface ProjectNavbarParams {
-    // project_name: string;
-    // ref: any;
     isOpen: boolean;
     links: { title: string, ref: string }[];
 }
 
 const ProjectNavbar: React.FC<ProjectNavbarParams> = (props) => {
-    const location = useLocation();
 
     return (
         <Drawer
@@ -19,17 +16,11 @@ const ProjectNavbar: React.FC<ProjectNavbarParams> = (props) => {
             anchor="left"
             open={props.isOpen}
             PaperProps={{ style: { position: 'relative' } }}
-            ModalProps={{
-                container: document.getElementById('container-container'),
-            }}
         >
         <List>
             {props.links.map((link, index) => (
-                <ListItem button key={link.title}>
-                    <GenericLink 
-                        name={link.title}
-                        to={link.ref}
-                        />
+                <ListItem button key={index} component={Link} to={link.ref}>
+                    <ListItemText primary={link.title}/>
                 </ListItem>
             ))}
         </List>

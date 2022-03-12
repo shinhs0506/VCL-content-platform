@@ -6,7 +6,6 @@ interface ProjectProps {
 }
 
 const ProjectContact: React.FC<ProjectProps> = (props) => {
-    console.log("HHERERER")
     return <div> contact page for {props.project.name} </div>;
 };
 
