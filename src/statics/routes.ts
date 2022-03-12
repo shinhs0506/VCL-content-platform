@@ -4,7 +4,6 @@ const ROUTES = {
     PATH: '/projects/:project_id/',
     BASE: '/projects',
     OVERVIEW: '/projects/overview',
-    // NAV:'/projects/projects/:project_name/:project_nav',
   },
   TIMELINE: '/timeline',
   ABOUT: '/about',

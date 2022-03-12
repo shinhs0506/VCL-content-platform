@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemText } from '@material-ui/core'; 
-import "./ProjectNavbar.css"
 
 interface ProjectNavbarParams {
     isOpen: boolean;
@@ -17,14 +16,13 @@ const ProjectNavbar: React.FC<ProjectNavbarParams> = (props) => {
             open={props.isOpen}
             PaperProps={{ style: { position: 'relative' } }}
         >
-        <List>
-            {props.links.map((link, index) => (
-                <ListItem button key={index} component={Link} to={link.ref}>
-                    <ListItemText primary={link.title}/>
-                </ListItem>
-            ))}
-        </List>
-            
+            <List>
+                {props.links.map((link, index) => (
+                    <ListItem button key={index} component={Link} to={link.ref}>
+                        <ListItemText primary={link.title}/>
+                    </ListItem>
+                ))}
+            </List>
         </Drawer>
     );
 }

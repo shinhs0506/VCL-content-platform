@@ -12,7 +12,7 @@ ProjectContact } from './'
 import { Project } from '@entities/Project'
 import PROJECT_NAV from '@statics/projectNav'
 import ProjectNavbar from '@components/ProjectNavbar'
-import "./Project.css"
+import "./ProjectWrapper.css"
 
 interface MatchParams {
     project_id: string;
@@ -34,10 +34,10 @@ const ProjectWrapper: React.FC<ProjectProps> = ({match}) => {
         return <div>Selected project does not exist</div>
     }
 
-    let links: {title: string, ref: string}[] = PROJECT_NAV.map(project => {
+    let links: {title: string, ref: string}[] = PROJECT_NAV.map(project_nav => {
         return {
-            title : project.TITLE, 
-            ref : ROUTES.PROJECT.BASE + "/" + curr_project.name + project.REF
+            title : project_nav.TITLE, 
+            ref : ROUTES.PROJECT.BASE + "/" + curr_project.name + project_nav.REF
             }
     })
 
