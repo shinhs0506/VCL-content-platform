@@ -8,8 +8,8 @@ import {
   Menu,
   MenuItem,
   Button,
-} from '@material-ui/core';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+} from '@mui/material'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { NAV, TEXT, CONSTANTS, ROUTES } from '@statics';
 import { useHandleLogout } from '@services/authService';
 import { useAppDispatch, useAppSelector } from '@redux/hooks';
