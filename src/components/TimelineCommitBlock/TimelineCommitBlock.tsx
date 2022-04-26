@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import moment from "moment";
-import Chip from '@material-ui/core/Chip';
+import Chip from '@mui/material/Chip';
 import './TimelineCommitBlock.css';
 interface TimelineCommitBlockProps {
     author: string;
