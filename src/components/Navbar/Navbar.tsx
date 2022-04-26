@@ -8,7 +8,7 @@ import {
   Menu,
   MenuItem,
   Button,
-} from '@mui/material'
+} from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { NAV, TEXT, CONSTANTS, ROUTES } from '@statics';
 import { useHandleLogout } from '@services/authService';
