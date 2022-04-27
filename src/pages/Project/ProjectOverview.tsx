@@ -1,13 +1,11 @@
 import React from 'react'
-import { Project } from '@entities/Project'
+import { useAppSelector } from '@redux/hooks';
+import { selectProjects } from '@redux/slices/ProjectRedux';
 import GenericLink from '@components/generics/Link'
 import { ROUTES } from '@statics';
 
-interface OverviewParams {
-    projects: Project[];
-}
-
-const OverviewPage: React.FC<OverviewParams> = (props) => {
+const ProjectOverview = () => {
+    const projects = useAppSelector(selectProjects); 
 
     return (
         <div>
@@ -15,7 +13,7 @@ const OverviewPage: React.FC<OverviewParams> = (props) => {
                 All Projects
             </div>
             <div>
-                {props.projects.map((project, i) => {
+                {projects.map((project, i) => {
                     return (
                         <li key={i}>
                             <GenericLink name={project.name} 
@@ -28,5 +26,5 @@ const OverviewPage: React.FC<OverviewParams> = (props) => {
            )
 }
 
-export default OverviewPage;
+export default ProjectOverview;
 

@@ -31,6 +31,14 @@ const TEXT = {
     RESOURCES: 'Resources',
   },
 
+  PROJECT_NAV: {
+      PROJECT_DESCRIPTION: 'Project Description',
+      JOIN_THE_TEAM: 'Join the Team',
+      RESOURCES: 'Resources',
+      TEAM: 'Team',
+      CONTACT: 'Contact',
+  },
+
   ALERTS: {
     AUTH_SUCCESS: 'Authentication successful.',
     AUTH_FAILED: 'Authentication failed.',
