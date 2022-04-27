@@ -27,7 +27,6 @@ interface ProjectProps extends RouteComponentProps<MatchParams> {
 const ProjectWrapper: React.FC<ProjectProps> = ({match}) => {
     const [ selected, setSelected ] = React.useState(true);
     const expand = selected? 'expand' : '';
-    // TODO: add a button open/close the sidebar
 
     const projects = useAppSelector(selectProjects); 
 
