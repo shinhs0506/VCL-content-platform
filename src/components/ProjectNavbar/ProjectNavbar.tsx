@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Drawer, List, ListItem, ListItemText } from '@material-ui/core'; 
+import { Drawer, List, ListItem, ListItemText } from '@mui/material'; 
 
 interface ProjectNavbarParams {
     isOpen: boolean;
