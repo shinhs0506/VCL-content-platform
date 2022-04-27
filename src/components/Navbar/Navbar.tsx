@@ -88,7 +88,7 @@ const Navbar: React.FC<{}> = () => {
                     }}
                 >
                     <MenuItem onClick={handleProjectMenuClose}>
-                                <GenericLink name="Overview" to={`${ROUTES.PROJECT.OVERVIEW}`}/>
+                                <GenericLink name="Overview" to={`${ROUTES.PROJECT.BASE}`}/>
                     </MenuItem>
                     {
                         projects.map((e, i) => {
