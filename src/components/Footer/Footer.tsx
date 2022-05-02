@@ -6,8 +6,6 @@ import { GenericLink } from '@entities/GenericLink';
 import FooterLinkGroup from './FooterLinkGroup';
 import './Footer.css'
 
-
-
 const Footer = () => {
 
     const projects = useAppSelector(selectProjects);
